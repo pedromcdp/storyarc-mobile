@@ -1,6 +1,7 @@
 import React from "react";
 import tw from "twrnc";
 import { View, useWindowDimensions, Text } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import Map from "../components/home/Map";
 import Header from "../components/home/Header";
@@ -58,7 +59,7 @@ export default function Home() {
   );
 
   return (
-    <View mode="margin" style={{ flex: 1, backgroundColor: "#eee" }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <Header />
       <HeaderSearch />
       <TabView
@@ -72,6 +73,6 @@ export default function Home() {
           backgroundColor: "white",
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,8 +1,7 @@
-import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import NavigationController from "./src/navigation/NavigationController";
 import { StatusBar } from "expo-status-bar";
-import Home from "./src/screens/Home";
 import {
   useFonts,
   Poppins_500Medium,
@@ -28,17 +27,7 @@ export default function App() {
     return (
       <NavigationContainer>
         <StatusBar style="auto" />
-        <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-          <Stack.Navigator style={{ backgroundColor: "white" }}>
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{
-                headerShown: false,
-              }}
-            />
-          </Stack.Navigator>
-        </SafeAreaView>
+        <NavigationController />
       </NavigationContainer>
     );
   }
