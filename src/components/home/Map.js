@@ -1,8 +1,9 @@
 import React from "react";
 import tw from "twrnc";
 import MapboxGL from "@react-native-mapbox-gl/maps";
+import { MAPBOX_TOKEN } from "@env";
 
-// MapboxGL.setAccessToken(<MapboxGL_Key>);
+MapboxGL.setAccessToken(`${MAPBOX_TOKEN}`);
 
 export default function Map() {
   return (
