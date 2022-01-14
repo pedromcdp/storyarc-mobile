@@ -55,6 +55,7 @@ export default function Home() {
       }}
       indicatorStyle={{ backgroundColor: "#37B780" }}
       renderLabel={renderLabel}
+      pressColor={"white"}
     />
   );
 

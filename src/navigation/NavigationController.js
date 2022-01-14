@@ -6,17 +6,33 @@ import PersonFilled from "../../assets/images/PersonFilled.svg";
 import PersonRegular from "../../assets/images/PersonRegular.svg";
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
+import LogIn from "../screens/LogIn";
 
 const TabController = createBottomTabNavigator();
 
 export default function NavigationController() {
+  const isLoggedIn = false;
   return (
     <TabController.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, color, size }) => {
-          let icon;
-
-          if (route.name === "Home") {
+      screenOptions={{
+        detachInactiveScreens: true,
+        tabBarShowLabel: false,
+        tabBarBackground: () => <TabBar />,
+        tabBarStyle: {
+          backgroundColor: "transparent",
+          borderTopWidth: 0,
+          position: "absolute",
+          elevation: 0,
+        },
+        headerShown: false,
+      }}
+    >
+      <TabController.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            let icon;
             icon = focused ? (
               <HomeFilled
                 width={30}
@@ -34,7 +50,16 @@ export default function NavigationController() {
                 }}
               />
             );
-          } else if (route.name === "Profile") {
+            return icon;
+          },
+        }}
+      />
+      <TabController.Screen
+        name="Profile"
+        component={isLoggedIn ? Profile : LogIn}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            let icon;
             icon = focused ? (
               <PersonFilled
                 width={30}
@@ -52,81 +77,10 @@ export default function NavigationController() {
                 }}
               />
             );
-          }
-          return icon;
-        },
-        detachInactiveScreens: true,
-        tabBarShowLabel: false,
-        tabBarBackground: () => <TabBar />,
-        tabBarStyle: {
-          backgroundColor: "transparent",
-          borderTopWidth: 0,
-          position: "absolute",
-          elevation: 0,
-        },
-        headerShown: false,
-      })}
-    >
-      <TabController.Screen name="Home" component={Home} />
-      <TabController.Screen name="Profile" component={Profile} />
+            return icon;
+          },
+        }}
+      />
     </TabController.Navigator>
   );
 }
-
-/*initialRouteName="Home"
-                // tabBar={(props) => <CustomTabBar {...props} />}
-                screenOptions={({ route }) => ({
-                  tabBarIcon: ({ focused, color, size }) => {
-                    let icon;
-
-                    if (route.name === "Home") {
-                      icon = focused ? (
-                        <HomeFilled
-                          width={35}
-                          height={35}
-                          style={{
-                            color: colorScheme === "light" ? "black" : "white",
-                          }}
-                        />
-                      ) : (
-                        <HomeRegular
-                          width={35}
-                          height={35}
-                          style={{
-                            color: colorScheme === "light" ? "black" : "white",
-                          }}
-                        />
-                      );
-                    } else if (route.name === "Perfil") {
-                      icon = focused ? (
-                        <PersonFilled
-                          width={35}
-                          height={35}
-                          style={{
-                            color: colorScheme === "light" ? "black" : "white",
-                          }}
-                        />
-                      ) : (
-                        <PersonRegular
-                          width={35}
-                          height={35}
-                          style={{
-                            color: colorScheme === "light" ? "black" : "white",
-                          }}
-                        />
-                      );
-                    }
-                    return icon;
-                  },
-                  detachInactiveScreens: true,
-                  tabBarShowLabel: false,
-                  tabBarBackground: () => <TabBarBG />,
-                  tabBarStyle: {
-                    backgroundColor: "transparent",
-                    borderTopWidth: 0,
-                    position: "absolute",
-                    elevation: 0,
-                  },
-                  tabBarInactiveTintColor: "gray",
-                  tabBarActiveTintColor: "gray",
-                })} */
