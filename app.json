@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "storyarc",
+    "slug": "storyarc",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "plugins": ["@react-native-mapbox-gl/maps"],
+    "ios": {
+      "bundleIdentifier": "com.pedromcdp.storyarc",
+      "supportsTablet": false
+    }
+  }
+}
