@@ -8,6 +8,7 @@ export default function Header() {
       <Image
         style={tw`w-36 h-7`}
         source={require("./../../../assets/images/header_logo.png")}
+        resizeMode="cover"
       />
     </View>
   );

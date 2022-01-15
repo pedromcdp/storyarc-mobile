@@ -32,8 +32,7 @@ export default function NavigationController() {
         component={Home}
         options={{
           tabBarIcon: ({ focused }) => {
-            let icon;
-            icon = focused ? (
+            return focused ? (
               <HomeFilled
                 width={30}
                 height={30}
@@ -50,7 +49,6 @@ export default function NavigationController() {
                 }}
               />
             );
-            return icon;
           },
         }}
       />
@@ -59,8 +57,7 @@ export default function NavigationController() {
         component={isLoggedIn ? Profile : LogIn}
         options={{
           tabBarIcon: ({ focused }) => {
-            let icon;
-            icon = focused ? (
+            return focused ? (
               <PersonFilled
                 width={30}
                 height={30}
@@ -77,7 +74,6 @@ export default function NavigationController() {
                 }}
               />
             );
-            return icon;
           },
         }}
       />

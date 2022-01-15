@@ -1,11 +1,23 @@
-import React from "react";
-import tw from "twrnc";
-import { View, useWindowDimensions, Text } from "react-native";
+import React, { useState } from "react";
+("react");
+import {
+  View,
+  useWindowDimensions,
+  Text,
+  Button,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
+import { MotiView, AnimatePresence } from "moti";
 import Map from "../components/home/Map";
 import Header from "../components/home/Header";
 import HeaderSearch from "../components/home/HeaderSearch";
+import Blur from "../components/shared/Blur";
+import SearchBar from "../components/shared/SearchBar";
+import { useSelector } from "react-redux";
+import { useShowSearch } from "../features/HomeSlice";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 const FirstRoute = () => (
   <View
@@ -26,6 +38,7 @@ const renderScene = SceneMap({
 });
 
 export default function Home() {
+  const showSearch = useSelector(useShowSearch);
   const layout = useWindowDimensions();
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
@@ -74,6 +87,8 @@ export default function Home() {
           backgroundColor: "white",
         }}
       />
+      <AnimatePresence>{showSearch && <Blur />}</AnimatePresence>
+      <AnimatePresence>{showSearch && <SearchBar />}</AnimatePresence>
     </SafeAreaView>
   );
 }

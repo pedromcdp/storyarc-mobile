@@ -1,5 +1,6 @@
+import { Provider } from "react-redux";
+import { store } from "./src/app/store";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import NavigationController from "./src/navigation/NavigationController";
 import { StatusBar } from "expo-status-bar";
 import {
@@ -8,8 +9,6 @@ import {
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
 import { View, Text } from "react-native";
-
-const Stack = createNativeStackNavigator();
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -25,10 +24,12 @@ export default function App() {
     );
   } else {
     return (
-      <NavigationContainer>
-        <StatusBar style="auto" />
-        <NavigationController />
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <StatusBar style="auto" />
+          <NavigationController />
+        </NavigationContainer>
+      </Provider>
     );
   }
 }
