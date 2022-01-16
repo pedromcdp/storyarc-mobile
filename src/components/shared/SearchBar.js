@@ -34,7 +34,7 @@ export default function SearchBar() {
         backgroundColor: "white",
         top: 0,
         width: "100%",
-        height: notchedIphone ? 103 : 76,
+        height: notchedIphone ? 103 : 86,
       }}
     >
       <View style={tw`px-4 pt-[${insets.top}] flex-row h-full items-center`}>
@@ -43,7 +43,7 @@ export default function SearchBar() {
             name="arrowleft"
             size={25}
             color="black"
-            style={tw`mr-3`}
+            style={tw`mr-2`}
           />
         </TouchableOpacity>
         <View
