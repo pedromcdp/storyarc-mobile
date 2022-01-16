@@ -12,9 +12,11 @@ const TabController = createBottomTabNavigator();
 
 export default function NavigationController() {
   const isLoggedIn = false;
+
   return (
     <TabController.Navigator
       screenOptions={{
+        tabBarHideOnKeyboard: true,
         detachInactiveScreens: true,
         tabBarShowLabel: false,
         tabBarBackground: () => <TabBar />,
