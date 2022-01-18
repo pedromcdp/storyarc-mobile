@@ -1,4 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
+import { useAppSettings } from "../features/AppSettingsSlice";
 import TabBar from "../components/shared/TabBar";
 import HomeFilled from "../../assets/images/HomeFilled.svg";
 import HomeRegular from "../../assets/images/HomeRegular.svg";
@@ -7,18 +12,22 @@ import PersonRegular from "../../assets/images/PersonRegular.svg";
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import LogIn from "../screens/LogIn";
+import Notifications from "../screens/Notifications";
+import Settings from "../screens/Settings";
 
 const TabController = createBottomTabNavigator();
+const StackController = createNativeStackNavigator();
 
 export default function NavigationController() {
   const isLoggedIn = false;
+  const settings = useSelector(useAppSettings);
 
   return (
     <TabController.Navigator
       screenOptions={{
         tabBarHideOnKeyboard: true,
         detachInactiveScreens: true,
-        tabBarShowLabel: false,
+        tabBarShowLabel: settings.showTabBarLabel,
         tabBarBackground: () => <TabBar />,
         tabBarStyle: {
           backgroundColor: "transparent",
@@ -26,13 +35,16 @@ export default function NavigationController() {
           position: "absolute",
           elevation: 0,
         },
+        tabBarLabelStyle: { fontFamily: "Poppins_400Regular" },
         headerShown: false,
+        tabBarActiveTintColor: "#000",
       }}
     >
       <TabController.Screen
-        name="Home"
-        component={Home}
+        name="TabHome"
+        component={HomeController}
         options={{
+          title: "Ecrã inicial",
           tabBarIcon: ({ focused }) => {
             return focused ? (
               <HomeFilled
@@ -58,6 +70,7 @@ export default function NavigationController() {
         name="Profile"
         component={isLoggedIn ? Profile : LogIn}
         options={{
+          title: "Perfil",
           tabBarIcon: ({ focused }) => {
             return focused ? (
               <PersonFilled
@@ -80,5 +93,51 @@ export default function NavigationController() {
         }}
       />
     </TabController.Navigator>
+  );
+}
+
+function HomeController({ navigation }) {
+  return (
+    <StackController.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        headerBackTitleVisible: false,
+        headerShadowVisible: false,
+        headerLeft: (props) => (
+          <TouchableOpacity
+            {...props}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <AntDesign name="arrowleft" size={25} />
+          </TouchableOpacity>
+        ),
+        headerTitleStyle: {
+          fontFamily: "Poppins_500Medium",
+          fontSize: 18,
+        },
+      }}
+    >
+      <StackController.Screen
+        name="Home"
+        component={Home}
+        options={{ headerShown: false }}
+      />
+      <StackController.Screen
+        name="Notifications"
+        component={Notifications}
+        options={{
+          title: "Notificações",
+        }}
+      />
+      <StackController.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          title: "Definições",
+        }}
+      />
+    </StackController.Navigator>
   );
 }

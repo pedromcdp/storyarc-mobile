@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 ("react");
 import { View, useWindowDimensions, Text, ScrollView } from "react-native";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MotiView, AnimatePresence } from "moti";
 import Map from "../components/home/Map";
@@ -14,7 +11,6 @@ import Blur from "../components/shared/Blur";
 import SearchBar from "../components/shared/SearchBar";
 import { useSelector } from "react-redux";
 import { useShowSearch } from "../features/HomeSlice";
-import { Skeleton } from "moti/skeleton";
 import tw from "twrnc";
 
 const FirstRoute = () => (

@@ -17,7 +17,12 @@
       "supportsTablet": false
     },
     "android": {
-      "package": "com.pedromcdp.storyarc"
+      "package": "com.pedromcdp.storyarc",
+      "icon": "./assets/images/icon.png",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#133960"
+      }
     }
   }
 }
