@@ -101,6 +101,7 @@ function HomeController({ navigation }) {
     <StackController.Navigator
       initialRouteName="Home"
       screenOptions={{
+        headerTitleAlign: "center",
         headerBackTitleVisible: false,
         headerShadowVisible: false,
         headerLeft: (props) => (
