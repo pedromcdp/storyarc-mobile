@@ -18,15 +18,8 @@ import { Skeleton } from "moti/skeleton";
 import tw from "twrnc";
 
 const FirstRoute = () => (
-  <View style={tw`px-4 pt-2 bg-[#f6f6f6] flex-1`}>
+  <View style={tw`px-4 pt-2 bg-[#f6f6f6] flex-1 items-center justify-center`}>
     <Text>Home</Text>
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={tw`flex-row flex-wrap`}>
-        {[...Array(10)].map((x, i) => (
-          <Skeleton key={i} height={200} width={150} colorMode="light" />
-        ))}
-      </View>
-    </ScrollView>
   </View>
 );
 

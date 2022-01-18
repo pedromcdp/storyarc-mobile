@@ -28,6 +28,7 @@ export default function SearchBar() {
       }}
       transition={{
         type: "timing",
+        duration: 200,
       }}
       style={{
         position: "absolute",
@@ -37,7 +38,7 @@ export default function SearchBar() {
         height: notchedIphone ? 103 : 86,
       }}
     >
-      <View style={tw`px-4 pt-[${insets.top}] flex-row h-full items-center`}>
+      <View style={tw`mx-4 pt-[${insets.top}] flex-row h-full items-center`}>
         <TouchableOpacity onPress={() => dispatch(toggleShowSearch())}>
           <AntDesign
             name="arrowleft"
@@ -63,7 +64,7 @@ export default function SearchBar() {
             ref={searchRef}
             placeholder="pesquise por locais"
             placeholderTextColor={"#909090"}
-            style={{ fontFamily: "Poppins_400Regular" }}
+            style={({ fontFamily: "Poppins_400Regular" }, tw`flex-1`)}
           />
         </View>
       </View>

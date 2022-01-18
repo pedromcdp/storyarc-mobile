@@ -4,9 +4,12 @@
     "slug": "storyarc",
     "version": "1.0.0",
     "orientation": "portrait",
+    "plataforms": ["ios", "android"],
+    "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
-      "reziseMode": "contain"
+      "reziseMode": "contain",
+      "backgroundColor": "#133960"
     },
     "plugins": ["@react-native-mapbox-gl/maps"],
     "ios": {
