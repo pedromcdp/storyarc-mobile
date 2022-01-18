@@ -59,7 +59,12 @@ export default function SearchBar() {
               marginRight: 4,
             }}
           />
-          <TextInput ref={searchRef} placeholder="pesquise por locais" />
+          <TextInput
+            ref={searchRef}
+            placeholder="pesquise por locais"
+            placeholderTextColor={"#909090"}
+            style={{ fontFamily: "Poppins_400Regular" }}
+          />
         </View>
       </View>
     </MotiView>

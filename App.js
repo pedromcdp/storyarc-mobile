@@ -8,7 +8,7 @@ import {
   Poppins_500Medium,
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
-import { View, Text } from "react-native";
+import AppLoading from "expo-app-loading";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -17,11 +17,7 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
+    return <AppLoading />;
   } else {
     return (
       <Provider store={store}>

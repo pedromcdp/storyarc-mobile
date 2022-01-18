@@ -4,9 +4,11 @@
     "slug": "storyarc",
     "version": "1.0.0",
     "orientation": "portrait",
-    "plugins": [
-      "@react-native-mapbox-gl/maps"
-    ],
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "reziseMode": "contain"
+    },
+    "plugins": ["@react-native-mapbox-gl/maps"],
     "ios": {
       "bundleIdentifier": "com.pedromcdp.storyarc",
       "supportsTablet": false

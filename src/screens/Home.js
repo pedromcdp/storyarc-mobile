@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 ("react");
+import { View, useWindowDimensions, Text, ScrollView } from "react-native";
 import {
-  View,
-  useWindowDimensions,
-  Text,
-  Button,
-  TouchableOpacity,
-} from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MotiView, AnimatePresence } from "moti";
 import Map from "../components/home/Map";
@@ -17,18 +14,19 @@ import Blur from "../components/shared/Blur";
 import SearchBar from "../components/shared/SearchBar";
 import { useSelector } from "react-redux";
 import { useShowSearch } from "../features/HomeSlice";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { Skeleton } from "moti/skeleton";
+import tw from "twrnc";
 
 const FirstRoute = () => (
-  <View
-    style={{
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#f6f6f6",
-    }}
-  >
+  <View style={tw`px-4 pt-2 bg-[#f6f6f6] flex-1`}>
     <Text>Home</Text>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={tw`flex-row flex-wrap`}>
+        {[...Array(10)].map((x, i) => (
+          <Skeleton key={i} height={200} width={150} colorMode="light" />
+        ))}
+      </View>
+    </ScrollView>
   </View>
 );
 
@@ -38,9 +36,10 @@ const renderScene = SceneMap({
 });
 
 export default function Home() {
+  const insets = useSafeAreaInsets();
   const showSearch = useSelector(useShowSearch);
   const layout = useWindowDimensions();
-  const [index, setIndex] = React.useState(0);
+  const [index, setIndex] = useState(0);
   const [routes] = React.useState([
     { key: "explore", title: "Explorar" },
     { key: "map", title: "Mapa" },
@@ -73,7 +72,15 @@ export default function Home() {
   );
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
+    <MotiView
+      from={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{
+        type: "timing",
+        duration: 320,
+      }}
+      style={{ flex: 1, backgroundColor: "#fff", paddingTop: insets.top }}
+    >
       <Header />
       <HeaderSearch />
       <TabView
@@ -89,6 +96,6 @@ export default function Home() {
       />
       <AnimatePresence>{showSearch && <Blur />}</AnimatePresence>
       <AnimatePresence>{showSearch && <SearchBar />}</AnimatePresence>
-    </SafeAreaView>
+    </MotiView>
   );
 }
