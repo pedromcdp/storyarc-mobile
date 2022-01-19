@@ -8,7 +8,9 @@ import { useNavigation } from "@react-navigation/native";
 export default function Header() {
   const navigation = useNavigation();
   return (
-    <View style={tw`mx-4 bg-white pt-[21px] flex-row justify-between`}>
+    <View
+      style={tw`mx-4 bg-white pt-[21px] flex-row justify-between items-center`}
+    >
       <Image
         style={tw`w-36 h-7`}
         source={require("./../../../assets/images/header_logo.png")}
