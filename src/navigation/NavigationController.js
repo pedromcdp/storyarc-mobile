@@ -48,16 +48,16 @@ export default function NavigationController() {
           tabBarIcon: ({ focused }) => {
             return focused ? (
               <HomeFilled
-                width={30}
-                height={30}
+                width={settings.showTabBarLabel ? 25 : 30}
+                height={settings.showTabBarLabel ? 25 : 30}
                 style={{
                   color: "black",
                 }}
               />
             ) : (
               <HomeRegular
-                width={30}
-                height={30}
+                width={settings.showTabBarLabel ? 25 : 30}
+                height={settings.showTabBarLabel ? 25 : 30}
                 style={{
                   color: "black",
                 }}
@@ -74,16 +74,16 @@ export default function NavigationController() {
           tabBarIcon: ({ focused }) => {
             return focused ? (
               <PersonFilled
-                width={30}
-                height={30}
+                width={settings.showTabBarLabel ? 25 : 30}
+                height={settings.showTabBarLabel ? 25 : 30}
                 style={{
                   color: "black",
                 }}
               />
             ) : (
               <PersonRegular
-                width={30}
-                height={30}
+                width={settings.showTabBarLabel ? 25 : 30}
+                height={settings.showTabBarLabel ? 25 : 30}
                 style={{
                   color: "black",
                 }}
