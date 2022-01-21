@@ -65,6 +65,7 @@ export default function SearchBar() {
             placeholder="pesquise por locais"
             placeholderTextColor={"#909090"}
             style={({ fontFamily: "Poppins_400Regular" }, tw`flex-1`)}
+            keyboardAppearance="light"
           />
         </View>
       </View>
