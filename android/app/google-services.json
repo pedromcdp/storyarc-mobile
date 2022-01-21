@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "389867033099",
+    "project_id": "storyarc-bf600",
+    "storage_bucket": "storyarc-bf600.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:389867033099:android:d53ce672c19591bb08ad0e",
+        "android_client_info": {
+          "package_name": "com.pedromcdp.storyarc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "389867033099-pff21765q2rqtkuqohd3shdc8eq444en.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pedromcdp.storyarc",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "389867033099-72pmptlh15pb5gi50cend6rhitgl4npl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQzQkNkzP8aGPqMTzhLG3VzcY1QHvzF8M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "389867033099-72pmptlh15pb5gi50cend6rhitgl4npl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
