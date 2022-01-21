@@ -11,12 +11,7 @@
       "reziseMode": "contain",
       "backgroundColor": "#133960"
     },
-    "plugins": [
-      "@react-native-mapbox-gl/maps",
-      "@react-native-firebase/app",
-      "@react-native-firebase/perf",
-      "@react-native-firebase/crashlytics"
-    ],
+    "plugins": ["@react-native-mapbox-gl/maps", "@react-native-firebase/app"],
     "ios": {
       "bundleIdentifier": "com.pedromcdp.storyarc",
       "googleServicesFile": "./GoogleService-Info.plist",

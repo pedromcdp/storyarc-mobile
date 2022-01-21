@@ -1,4 +1,4 @@
-package com.pedromcdp.storyarc;
+package com.storyarc;
 
 import android.os.Build;
 import android.os.Bundle;
