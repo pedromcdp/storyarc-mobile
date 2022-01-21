@@ -11,13 +11,20 @@
       "reziseMode": "contain",
       "backgroundColor": "#133960"
     },
-    "plugins": ["@react-native-mapbox-gl/maps"],
+    "plugins": [
+      "@react-native-mapbox-gl/maps",
+      "@react-native-firebase/app",
+      "@react-native-firebase/perf",
+      "@react-native-firebase/crashlytics"
+    ],
     "ios": {
       "bundleIdentifier": "com.pedromcdp.storyarc",
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": false
     },
     "android": {
       "package": "com.pedromcdp.storyarc",
+      "googleServicesFile": "./google-services.json",
       "icon": "./assets/images/icon.png",
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
