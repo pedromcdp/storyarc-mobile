@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
@@ -14,12 +15,23 @@ import Profile from "../screens/Profile";
 import LogIn from "../screens/LogIn";
 import Notifications from "../screens/Notifications";
 import Settings from "../screens/Settings";
+import auth from "@react-native-firebase/auth";
 
 const TabController = createBottomTabNavigator();
 const StackController = createNativeStackNavigator();
 
 export default function NavigationController() {
-  const isLoggedIn = false;
+  const [user, setUser] = useState();
+
+  function onAuthStateChanged(user) {
+    setUser(user);
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, []);
+
   const settings = useSelector(useAppSettings);
 
   return (
@@ -68,7 +80,7 @@ export default function NavigationController() {
       />
       <TabController.Screen
         name="Profile"
-        component={isLoggedIn ? Profile : LogIn}
+        component={user ? Profile : LogIn}
         options={{
           title: "Perfil",
           tabBarIcon: ({ focused }) => {

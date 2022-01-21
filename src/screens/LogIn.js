@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Center,
@@ -10,11 +10,26 @@ import {
   KeyboardAvoidingView,
   Button,
   HStack,
-  Pressable,
 } from "native-base";
 import { Keyboard, TouchableOpacity } from "react-native";
+import auth from "@react-native-firebase/auth";
 
 export default function LogIn() {
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
+
+  //Deal with this later
+  function handleLogIn() {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log("User logged in!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -42,6 +57,11 @@ export default function LogIn() {
               variant={"unstyled"}
               fontFamily={"Poppins_400Regular"}
               fontSize={14}
+              value={email}
+              onChangeText={(e) => setEmail(e)}
+              keyboardAppearance="light"
+              keyboardType="email-address"
+              autoCapitalize="none"
             />
             <Divider />
             <Input
@@ -52,14 +72,17 @@ export default function LogIn() {
               variant={"unstyled"}
               fontFamily={"Poppins_400Regular"}
               fontSize={14}
+              value={password}
+              onChangeText={(e) => setPassword(e)}
+              keyboardAppearance="light"
             />
           </Box>
           <Button
-            onPress={() => console.log("Calma que isso ainda não está feito")}
+            onPress={handleLogIn}
             variant="unstyled"
             backgroundColor="#37B777"
             borderRadius={"xl"}
-            height={16}
+            height={12}
             mb={4}
           >
             <Text fontFamily="Poppins_400Regular" color="white" fontSize={16}>
