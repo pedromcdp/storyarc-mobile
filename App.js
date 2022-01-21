@@ -1,3 +1,4 @@
+import { NativeBaseProvider, Box } from "native-base";
 import { Provider } from "react-redux";
 import { store } from "./src/app/store";
 import { NavigationContainer } from "@react-navigation/native";
@@ -20,12 +21,14 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <Provider store={store}>
-        <NavigationContainer>
-          <StatusBar style="auto" />
-          <NavigationController />
-        </NavigationContainer>
-      </Provider>
+      <NativeBaseProvider>
+        <Provider store={store}>
+          <NavigationContainer>
+            <StatusBar style="auto" />
+            <NavigationController />
+          </NavigationContainer>
+        </Provider>
+      </NativeBaseProvider>
     );
   }
 }

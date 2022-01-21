@@ -4,7 +4,7 @@ import { View, useWindowDimensions, Text, ScrollView } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MotiView, AnimatePresence } from "moti";
-import Map from "../components/home/Map";
+// import Map from "../components/home/Map";
 import Header from "../components/home/Header";
 import HeaderSearch from "../components/home/HeaderSearch";
 import Blur from "../components/shared/Blur";
@@ -21,7 +21,7 @@ const FirstRoute = () => (
 
 const renderScene = SceneMap({
   explore: FirstRoute,
-  map: Map,
+  map: FirstRoute,
 });
 
 export default function Home() {
