@@ -1,15 +1,16 @@
-import { NativeBaseProvider, Box } from "native-base";
+import { StatusBar } from "expo-status-bar";
+import { NativeBaseProvider } from "native-base";
 import { Provider } from "react-redux";
 import { store } from "./src/app/store";
 import { NavigationContainer } from "@react-navigation/native";
 import NavigationController from "./src/navigation/NavigationController";
-import { StatusBar } from "expo-status-bar";
 import {
   useFonts,
   Poppins_500Medium,
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
 import AppLoading from "expo-app-loading";
+import theme from "./src/theme";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -21,10 +22,10 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={theme}>
+        <StatusBar style="dark" backgroundColor="#5b5b5b" />
         <Provider store={store}>
           <NavigationContainer>
-            <StatusBar style="dark" />
             <NavigationController />
           </NavigationContainer>
         </Provider>
