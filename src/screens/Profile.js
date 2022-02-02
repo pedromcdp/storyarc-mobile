@@ -59,10 +59,10 @@ export default function Profile() {
       </ZStack>
       <VStack mx={4} justifyContent="flex-end" bottom="0" flex={1} pb={16}>
         <VStack flex={1} justifyContent="center" space={6} mx={6}>
-          <ItemRow textContent="Publicações próprias" />
-          <ItemRow textContent="Favoritos" />
-          <ItemRow textContent="Notificações" />
-          <ItemRow textContent="Sobre o StoryArc" />
+          <ItemRow textContent="Publicações próprias" routeName="OwnPosts" />
+          <ItemRow textContent="Favoritos" routeName="Favourites" />
+          <ItemRow textContent="Notificações" routeName="UserNotifications" />
+          <ItemRow textContent="Sobre o StoryArc" routeName="About" />
         </VStack>
         <Button
           onPress={handleLogOut}

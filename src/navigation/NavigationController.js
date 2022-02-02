@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { TouchableOpacity } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 import { useAppSettings } from "../features/AppSettingsSlice";
 import TabBar from "../components/shared/TabBar";
@@ -10,28 +7,12 @@ import HomeFilled from "../../assets/images/HomeFilled.svg";
 import HomeRegular from "../../assets/images/HomeRegular.svg";
 import PersonFilled from "../../assets/images/PersonFilled.svg";
 import PersonRegular from "../../assets/images/PersonRegular.svg";
-import Home from "../screens/Home";
-import Profile from "../screens/Profile";
-import LogIn from "../screens/LogIn";
-import Notifications from "../screens/Notifications";
-import Settings from "../screens/Settings";
-import auth from "@react-native-firebase/auth";
+import HomeController from "./HomeController";
+import ProfileController from "./ProfileController";
 
 const TabController = createBottomTabNavigator();
-const StackController = createNativeStackNavigator();
 
 export default function NavigationController() {
-  const [user, setUser] = useState();
-
-  function onAuthStateChanged(user) {
-    setUser(user);
-  }
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
-  }, []);
-
   const settings = useSelector(useAppSettings);
 
   return (
@@ -79,8 +60,8 @@ export default function NavigationController() {
         }}
       />
       <TabController.Screen
-        name="Profile"
-        component={user ? Profile : LogIn}
+        name="TabProfile"
+        component={ProfileController}
         options={{
           title: "Perfil",
           tabBarIcon: ({ focused }) => {
@@ -105,52 +86,5 @@ export default function NavigationController() {
         }}
       />
     </TabController.Navigator>
-  );
-}
-
-function HomeController({ navigation }) {
-  return (
-    <StackController.Navigator
-      initialRouteName="Home"
-      screenOptions={{
-        headerTitleAlign: "center",
-        headerBackTitleVisible: false,
-        headerShadowVisible: false,
-        headerLeft: (props) => (
-          <TouchableOpacity
-            {...props}
-            onPress={() => {
-              navigation.goBack();
-            }}
-          >
-            <AntDesign name="arrowleft" size={25} />
-          </TouchableOpacity>
-        ),
-        headerTitleStyle: {
-          fontFamily: "Poppins_500Medium",
-          fontSize: 18,
-        },
-      }}
-    >
-      <StackController.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
-      />
-      <StackController.Screen
-        name="Notifications"
-        component={Notifications}
-        options={{
-          title: "Notificações",
-        }}
-      />
-      <StackController.Screen
-        name="Settings"
-        component={Settings}
-        options={{
-          title: "Definições",
-        }}
-      />
-    </StackController.Navigator>
   );
 }

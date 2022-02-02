@@ -1,11 +1,12 @@
-import React from "react";
 import { HStack, Text } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-export default function ItemRow({ textContent }) {
+export default function ItemRow({ textContent, routeName }) {
+  const navigation = useNavigation();
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate(`${routeName}`)}>
       <HStack alignItems="center" justifyContent="space-between" gap={6}>
         <Text fontFamily="Poppins_400Regular" fontSize={18}>
           {textContent}
