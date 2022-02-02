@@ -10,7 +10,7 @@ import {
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
 import AppLoading from "expo-app-loading";
-import theme from "./src/theme";
+import { config } from "./src/theme";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -22,8 +22,8 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <NativeBaseProvider theme={theme}>
-        <StatusBar style="dark" backgroundColor="#5b5b5b" />
+      <NativeBaseProvider config={config}>
+        <StatusBar style="dark" />
         <Provider store={store}>
           <NavigationContainer>
             <NavigationController />

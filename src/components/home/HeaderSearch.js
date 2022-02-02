@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text } from "react-native";
 import tw from "twrnc";
 import Search from "../../../assets/images/search.svg";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleShowSearch } from "../../features/HomeSlice";
 
 export default function HeaderSearch() {

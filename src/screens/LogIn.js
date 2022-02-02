@@ -48,7 +48,6 @@ export default function LogIn() {
               mb={12}
             />
           </Center>
-
           <Box shadow={2} backgroundColor={"white"} borderRadius={"xl"} mb={6}>
             <Input
               placeholder="Email"
@@ -84,12 +83,12 @@ export default function LogIn() {
             borderRadius={"xl"}
             height={12}
             mb={4}
+            _pressed={{ opacity: 80 }}
           >
             <Text fontFamily="Poppins_400Regular" color="white" fontSize={16}>
               Iniciar Sessão
             </Text>
           </Button>
-
           <HStack justifyContent={"center"} space={1}>
             <Text fontFamily={"Poppins_400Regular"}>
               Ainda não tem uma conta?

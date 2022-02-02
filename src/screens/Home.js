@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, useWindowDimensions, Text, ScrollView } from "react-native";
+import { View, useWindowDimensions, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MotiView, AnimatePresence } from "moti";
