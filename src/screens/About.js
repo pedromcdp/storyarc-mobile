@@ -1,10 +1,11 @@
-import { VStack } from "native-base";
+import { ScrollView } from "native-base";
 import AboutRow from "../components/profile/AboutRow";
+import { version } from "../../package.json";
 
 export default function About() {
   return (
-    <VStack flex={1} bg="white">
-      <AboutRow title="Versão" subtitle="0.1_alpha" />
+    <ScrollView flex={1} bg="white">
+      <AboutRow title="Versão" subtitle={version} />
       <AboutRow title="Termos e condições" hasChild={true} isPressable={true} />
       <AboutRow title="Informações legais" hasChild={true} isPressable={true} />
       <AboutRow
@@ -13,6 +14,6 @@ export default function About() {
         openWeb={true}
         isPressable={true}
       />
-    </VStack>
+    </ScrollView>
   );
 }
