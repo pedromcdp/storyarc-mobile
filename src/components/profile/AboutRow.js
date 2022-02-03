@@ -32,10 +32,11 @@ export default function AboutRow({
       <Pressable
         _pressed={{ opacity: isPressable ? 20 : 100 }}
         onPress={() => openWeb && openWebsite()}
-        my={subtitle ? 4 : 8}
+        py={subtitle ? 4 : 8}
+        minH={16}
       >
         <HStack justifyContent="space-between" alignItems="center">
-          <VStack width="84%">
+          <VStack width="70%">
             <Text fontFamily="Poppins_500Medium" fontSize={16}>
               {title}
             </Text>
