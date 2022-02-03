@@ -36,6 +36,7 @@ export default function Settings() {
           <Switch
             style={tw`mr-4 ml-4`}
             trackColor={{ true: "#37B777", false: "#767577" }}
+            thumbColor="white"
             onValueChange={() => {
               dispatch(setShowTabBarLabel());
             }}

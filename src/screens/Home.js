@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, useWindowDimensions, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
@@ -28,7 +28,7 @@ export default function Home() {
   const showSearch = useSelector(useShowSearch);
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
-  const [routes] = React.useState([
+  const [routes] = useState([
     { key: "explore", title: "Explorar" },
     { key: "map", title: "Mapa" },
   ]);

@@ -1,4 +1,4 @@
-import { HStack, VStack, Text, Pressable, Box } from "native-base";
+import { HStack, VStack, Text, Pressable, Box, Switch } from "native-base";
 import { Linking } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -9,6 +9,8 @@ export default function AboutRow({
   hasChild,
   openWeb,
   routeName,
+  isSwitchable,
+  isPressable,
 }) {
   const navigation = useNavigation();
   function openWebsite() {
@@ -25,15 +27,15 @@ export default function AboutRow({
       pr={4}
       borderBottomWidth={1}
       borderBottomColor="#E2E2E2"
-      h={20}
       justifyContent="center"
     >
       <Pressable
-        _pressed={{ opacity: title != "Versão" ? 80 : 100 }}
+        _pressed={{ opacity: isPressable ? 20 : 100 }}
         onPress={() => openWeb && openWebsite()}
+        my={subtitle ? 4 : 6}
       >
         <HStack justifyContent="space-between">
-          <VStack>
+          <VStack width="84%">
             <Text fontFamily="Poppins_500Medium" fontSize={16}>
               {title}
             </Text>
@@ -48,6 +50,12 @@ export default function AboutRow({
             )}
           </VStack>
           {hasChild && <AntDesign name="right" size={20} color="black" />}
+          {isSwitchable && (
+            <Switch
+              trackColor={{ true: "#37B777", false: "#767577" }}
+              thumbColor="white"
+            />
+          )}
         </HStack>
       </Pressable>
     </Box>
