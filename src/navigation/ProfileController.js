@@ -1,3 +1,4 @@
+import { View, Text, Platform } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
@@ -88,23 +89,25 @@ export default function ProfileController() {
               options={({ navigation }) => ({
                 presentation: "modal",
                 title: "Termos e Condições",
-                headerBackVisible: false,
-                headerLeft: null,
-                headerRight: (props) => (
-                  <TouchableOpacity
-                    {...props}
-                    onPress={() => {
-                      navigation.goBack();
-                    }}
-                    style={{
-                      backgroundColor: "#f6f6f6",
-                      borderRadius: 50,
-                      padding: 4,
-                    }}
-                  >
-                    <AntDesign name="close" size={24} />
-                  </TouchableOpacity>
-                ),
+                headerLeft: () => {
+                  Platform.OS === "ios" && null;
+                },
+                headerRight: (props) =>
+                  Platform.OS === "ios" && (
+                    <TouchableOpacity
+                      {...props}
+                      onPress={() => {
+                        navigation.goBack();
+                      }}
+                      style={{
+                        backgroundColor: "#f6f6f6",
+                        borderRadius: 50,
+                        padding: 4,
+                      }}
+                    >
+                      <AntDesign name="close" size={24} />
+                    </TouchableOpacity>
+                  ),
               })}
             />
           </StackController.Group>
