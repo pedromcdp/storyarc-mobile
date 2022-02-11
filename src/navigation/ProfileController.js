@@ -86,9 +86,9 @@ export default function ProfileController() {
             <StackController.Screen
               name="Terms"
               component={Terms}
-              options={({ navigation }) => ({
+              options={({ navigation, route }) => ({
+                title: route.params.title,
                 presentation: "modal",
-                title: "Termos e Condições",
                 headerLeft: () => {
                   Platform.OS === "ios" && null;
                 },

@@ -10,6 +10,7 @@ export function CellRow({
   hasChild,
   openWeb,
   routeName,
+  routeParams,
   isSwitchable,
   isPressable,
   dispatchAction,
@@ -23,7 +24,7 @@ export function CellRow({
   }
 
   function navigate(id) {
-    navigation.navigate(id);
+    navigation.navigate(id, routeParams);
   }
 
   return (

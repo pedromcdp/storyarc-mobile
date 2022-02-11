@@ -11,6 +11,7 @@ export function About() {
         hasChild
         isPressable
         routeName="Terms"
+        routeParams={{ title: "Termos e Condições" }}
       />
       <CellRow title="Informações legais" hasChild isPressable />
       <CellRow title="storyarc.pt" hasChild openWeb isPressable />
