@@ -12,13 +12,13 @@ import {
   Favourites,
   UserNotifications,
   About,
+  Terms,
 } from "../screens";
 
 const StackController = createNativeStackNavigator();
 
 export default function ProfileController() {
   const user = useSelector(useUser);
-  console.log(user);
 
   return (
     <StackController.Navigator
@@ -44,41 +44,50 @@ export default function ProfileController() {
     >
       {user ? (
         <>
-          <StackController.Screen
-            name="Profile"
-            component={Profile}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <StackController.Screen
-            name="OwnPosts"
-            component={OwnPosts}
-            options={{
-              title: "Publicações próprias",
-            }}
-          />
-          <StackController.Screen
-            name="Favourites"
-            component={Favourites}
-            options={{
-              title: "Favouritos",
-            }}
-          />
-          <StackController.Screen
-            name="UserNotifications"
-            component={UserNotifications}
-            options={{
-              title: "Notificações",
-            }}
-          />
-          <StackController.Screen
-            name="About"
-            component={About}
-            options={{
-              title: "Sobre",
-            }}
-          />
+          <StackController.Group>
+            <StackController.Screen
+              name="Profile"
+              component={Profile}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <StackController.Screen
+              name="OwnPosts"
+              component={OwnPosts}
+              options={{
+                title: "Publicações próprias",
+              }}
+            />
+            <StackController.Screen
+              name="Favourites"
+              component={Favourites}
+              options={{
+                title: "Favouritos",
+              }}
+            />
+            <StackController.Screen
+              name="UserNotifications"
+              component={UserNotifications}
+              options={{
+                title: "Notificações",
+              }}
+            />
+            <StackController.Screen
+              name="About"
+              component={About}
+              options={{
+                title: "Sobre",
+              }}
+            />
+          </StackController.Group>
+          <StackController.Group screenOptions={{ presentation: "modal" }}>
+            <StackController.Screen
+              name="Terms"
+              component={Terms}
+              options={{ presentation: "modal" }}
+            />
+          </StackController.Group>
         </>
       ) : (
         <>

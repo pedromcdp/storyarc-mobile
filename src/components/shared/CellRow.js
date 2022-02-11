@@ -38,7 +38,9 @@ export function CellRow({
         _pressed={{
           opacity: isPressable ? 20 : 100,
         }}
-        onPress={() => openWeb && openWebsite()}
+        onPress={() =>
+          routeName ? navigate(routeName) : openWeb && openWebsite()
+        }
         py={subtitle ? 4 : 6}
         minH={20}
         justifyContent="center"
