@@ -81,11 +81,31 @@ export default function ProfileController() {
               }}
             />
           </StackController.Group>
-          <StackController.Group screenOptions={{ presentation: "modal" }}>
+          <StackController.Group>
             <StackController.Screen
               name="Terms"
               component={Terms}
-              options={{ presentation: "modal" }}
+              options={({ navigation }) => ({
+                presentation: "modal",
+                title: "Termos e Condições",
+                headerBackVisible: false,
+                headerLeft: null,
+                headerRight: (props) => (
+                  <TouchableOpacity
+                    {...props}
+                    onPress={() => {
+                      navigation.goBack();
+                    }}
+                    style={{
+                      backgroundColor: "#f6f6f6",
+                      borderRadius: 50,
+                      padding: 4,
+                    }}
+                  >
+                    <AntDesign name="close" size={24} />
+                  </TouchableOpacity>
+                ),
+              })}
             />
           </StackController.Group>
         </>
