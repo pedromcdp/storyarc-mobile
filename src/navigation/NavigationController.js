@@ -1,7 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import auth from "@react-native-firebase/auth";
+
 import { useAppSettings } from "../features/AppSettingsSlice";
+import { setUser } from "../features/UserSlice";
+
 import TabBar from "../components/shared/TabBar";
 import HomeFilled from "../../assets/images/HomeFilled.svg";
 import HomeRegular from "../../assets/images/HomeRegular.svg";
@@ -14,6 +18,16 @@ const TabController = createBottomTabNavigator();
 
 export default function NavigationController() {
   const settings = useSelector(useAppSettings);
+  const dispatch = useDispatch();
+
+  function onAuthStateChanged(user) {
+    dispatch(setUser(user));
+  }
+
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+    return subscriber;
+  }, []);
 
   return (
     <TabController.Navigator

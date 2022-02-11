@@ -14,7 +14,7 @@ import {
 import { Keyboard, TouchableOpacity } from "react-native";
 import auth from "@react-native-firebase/auth";
 
-export default function LogIn() {
+export function LogIn() {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
@@ -80,7 +80,7 @@ export default function LogIn() {
             onPress={handleLogIn}
             variant="unstyled"
             backgroundColor="#37B777"
-            borderRadius={"xl"}
+            borderRadius={"lg"}
             height={12}
             mb={4}
             _pressed={{ opacity: 80 }}

@@ -1,28 +1,28 @@
 import { ScrollView } from "native-base";
-import AboutRow from "../components/profile/AboutRow";
+import { CellRow } from "../components";
 
-export default function UserNotifications() {
+export function UserNotifications() {
   return (
     <ScrollView flex={1} bg="white">
-      <AboutRow
+      <CellRow
         title="Lugares históricos próximos"
-        subtitle="Será notificado quando estou perto de marcos históricos"
-        isSwitchable={true}
+        subtitle="Serás notificado quando estiveres perto de marcos históricos"
+        isSwitchable
       />
-      <AboutRow
+      <CellRow
         title="Este dia na história"
-        subtitle="Será notificado no dia de marcos históricos"
-        isSwitchable={true}
+        subtitle="Serás notificado no dia de marcos históricos"
+        isSwitchable
       />
-      <AboutRow
+      <CellRow
         title="Mais apreciados esta semana"
-        subtitle="Será notificado com os melhores conteúdos colocados na plataforma durante a semana "
-        isSwitchable={true}
+        subtitle="Serás notificado com os melhores conteúdos colocados na plataforma durante a semana"
+        isSwitchable
       />
-      <AboutRow
+      <CellRow
         title="Recriar fotos"
-        subtitle="Será notificado para recriar fotos antigas baseado na sua localização atual"
-        isSwitchable={true}
+        subtitle="Serás notificado para recriar fotos antigas baseado na sua localização atual"
+        isSwitchable
       />
     </ScrollView>
   );

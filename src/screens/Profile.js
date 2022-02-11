@@ -1,9 +1,9 @@
-import { Box, Button, Image, Text, VStack, ZStack } from "native-base";
+import { Box, Button, Image, Text, VStack, ZStack, Avatar } from "native-base";
 import auth from "@react-native-firebase/auth";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import ItemRow from "../components/profile/ItemRow";
 
-export default function Profile() {
+export function Profile() {
   const insets = useSafeAreaInsets();
 
   function handleLogOut() {
@@ -39,7 +39,18 @@ export default function Profile() {
           height="full"
           width="full"
         >
-          <Image alt="Imagem de perfil do utilizador" />
+          <Box
+            position="absolute"
+            height="full"
+            width="full"
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Avatar
+              size="xl"
+              source={require("../../assets/images/user_img.png")}
+            />
+          </Box>
           <Text fontFamily="Poppins_500Medium" fontSize={18}>
             {auth().currentUser.displayName}
           </Text>

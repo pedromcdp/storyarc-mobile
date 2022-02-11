@@ -1,9 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "../screens/Home";
-import Notifications from "../screens/Notifications";
-import Settings from "../screens/Settings";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+
+import { Home, Notifications, Settings } from "../screens";
 
 const StackController = createNativeStackNavigator();
 

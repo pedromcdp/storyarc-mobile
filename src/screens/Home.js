@@ -23,7 +23,7 @@ const renderScene = SceneMap({
   map: Map,
 });
 
-export default function Home() {
+export function Home() {
   const insets = useSafeAreaInsets();
   const showSearch = useSelector(useShowSearch);
   const layout = useWindowDimensions();

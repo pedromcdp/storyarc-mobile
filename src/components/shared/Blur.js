@@ -1,5 +1,4 @@
 import React from "react";
-import { View } from "react-native";
 import { MotiView } from "moti";
 import { useDispatch } from "react-redux";
 import { toggleShowSearch } from "../../features/HomeSlice";

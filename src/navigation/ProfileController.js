@@ -1,32 +1,28 @@
-import { useEffect, useState } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
-import auth from "@react-native-firebase/auth";
-import Profile from "../screens/Profile";
-import LogIn from "../screens/LogIn";
-import OwnPosts from "../screens/OwnPosts";
-import Favourites from "../screens/Favourites";
-import UserNotifications from "../screens/UserNotifications";
-import About from "../screens/About";
+
+import { useUser } from "./../features/UserSlice";
+
+import {
+  Profile,
+  LogIn,
+  OwnPosts,
+  Favourites,
+  UserNotifications,
+  About,
+} from "../screens";
 
 const StackController = createNativeStackNavigator();
 
-export default function ProfileController({ navigation }) {
-  const [user, setUser] = useState();
-
-  function onAuthStateChanged(user) {
-    setUser(user);
-  }
-
-  useEffect(() => {
-    const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber;
-  }, []);
+export default function ProfileController() {
+  const user = useSelector(useUser);
+  console.log(user);
 
   return (
     <StackController.Navigator
-      screenOptions={{
+      screenOptions={({ navigation }) => ({
         headerTitleAlign: "center",
         headerBackTitleVisible: false,
         headerShadowVisible: false,
@@ -34,7 +30,7 @@ export default function ProfileController({ navigation }) {
           <TouchableOpacity
             {...props}
             onPress={() => {
-              navigation.navigate("Profile");
+              navigation.goBack();
             }}
           >
             <AntDesign name="arrowleft" size={25} />
@@ -44,41 +40,57 @@ export default function ProfileController({ navigation }) {
           fontFamily: "Poppins_500Medium",
           fontSize: 18,
         },
-      }}
+      })}
     >
-      <StackController.Screen
-        name="Profile"
-        component={user ? Profile : LogIn}
-        options={{ headerShown: false }}
-      />
-      <StackController.Screen
-        name="OwnPosts"
-        component={OwnPosts}
-        options={{
-          title: "Publicações próprias",
-        }}
-      />
-      <StackController.Screen
-        name="Favourites"
-        component={Favourites}
-        options={{
-          title: "Favouritos",
-        }}
-      />
-      <StackController.Screen
-        name="UserNotifications"
-        component={UserNotifications}
-        options={{
-          title: "Notificações",
-        }}
-      />
-      <StackController.Screen
-        name="About"
-        component={About}
-        options={{
-          title: "Sobre",
-        }}
-      />
+      {user ? (
+        <>
+          <StackController.Screen
+            name="Profile"
+            component={Profile}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <StackController.Screen
+            name="OwnPosts"
+            component={OwnPosts}
+            options={{
+              title: "Publicações próprias",
+            }}
+          />
+          <StackController.Screen
+            name="Favourites"
+            component={Favourites}
+            options={{
+              title: "Favouritos",
+            }}
+          />
+          <StackController.Screen
+            name="UserNotifications"
+            component={UserNotifications}
+            options={{
+              title: "Notificações",
+            }}
+          />
+          <StackController.Screen
+            name="About"
+            component={About}
+            options={{
+              title: "Sobre",
+            }}
+          />
+        </>
+      ) : (
+        <>
+          <StackController.Screen
+            name="LogIn"
+            component={LogIn}
+            options={{
+              headerShown: false,
+            }}
+          />
+        </>
+      )}
     </StackController.Navigator>
   );
 }

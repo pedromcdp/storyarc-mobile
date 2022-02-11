@@ -1,4 +1,4 @@
-import { Image, Appearance, Dimensions } from "react-native";
+import { Image, Dimensions } from "react-native";
 import { isIphoneX } from "react-native-iphone-x-helper";
 
 export default function TabBar() {

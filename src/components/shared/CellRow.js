@@ -2,8 +2,9 @@ import { HStack, VStack, Text, Pressable, Box, Switch } from "native-base";
 import { Linking } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
 
-export default function AboutRow({
+export function CellRow({
   title,
   subtitle,
   hasChild,
@@ -11,8 +12,12 @@ export default function AboutRow({
   routeName,
   isSwitchable,
   isPressable,
+  dispatchAction,
+  switchValue,
 }) {
   const navigation = useNavigation();
+  const dispatch = useDispatch();
+
   function openWebsite() {
     Linking.openURL("https://www.storyarc.pt");
   }
@@ -30,10 +35,13 @@ export default function AboutRow({
       justifyContent="center"
     >
       <Pressable
-        _pressed={{ opacity: isPressable ? 20 : 100 }}
+        _pressed={{
+          opacity: isPressable ? 20 : 100,
+        }}
         onPress={() => openWeb && openWebsite()}
-        py={subtitle ? 4 : 8}
-        minH={16}
+        py={subtitle ? 4 : 6}
+        minH={20}
+        justifyContent="center"
       >
         <HStack justifyContent="space-between" alignItems="center">
           <VStack width="70%">
@@ -55,6 +63,10 @@ export default function AboutRow({
             <Switch
               trackColor={{ true: "#37B777", false: "#767577" }}
               thumbColor="white"
+              onValueChange={() => {
+                dispatch(dispatchAction());
+              }}
+              isChecked={switchValue}
             />
           )}
         </HStack>
