@@ -12,7 +12,7 @@ export function HeaderSearch() {
     <Box px={4} pt={5} pb={2}>
       <HStack
         bg="#f6f6f6"
-        borderRadius={20}
+        borderRadius="2xl"
         h={12}
         px={5}
         alignItems="center"

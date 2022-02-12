@@ -7,7 +7,7 @@ export default function HighlightContent({ children }) {
     setIsLoaded(true);
   }, 2000);
   return (
-    <VStack bg="white" pt={1} pb={4} pl={4} shadow="9">
+    <VStack bg="white" pt={1} pb={4} pl={4}>
       <HStack
         alignItems="center"
         pb={1.5}

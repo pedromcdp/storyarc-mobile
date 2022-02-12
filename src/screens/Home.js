@@ -3,11 +3,16 @@ import { useWindowDimensions, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MotiView, AnimatePresence } from "moti";
-import Blur from "../components/shared/Blur";
-import SearchBar from "../components/shared/SearchBar";
 import { useSelector } from "react-redux";
 import { useShowSearch } from "../features/HomeSlice";
-import { Header, HeaderSearch, Feed, Map } from "../components";
+import {
+  Header,
+  HeaderSearch,
+  Feed,
+  Map,
+  SearchBar,
+  Blur,
+} from "../components";
 
 const renderScene = SceneMap({
   explore: Feed,
