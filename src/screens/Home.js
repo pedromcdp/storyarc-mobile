@@ -1,25 +1,16 @@
 import { useState } from "react";
-import { View, useWindowDimensions, Text } from "react-native";
+import { useWindowDimensions, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MotiView, AnimatePresence } from "moti";
-import Map from "../components/home/Map";
-import Header from "../components/home/Header";
-import HeaderSearch from "../components/home/HeaderSearch";
 import Blur from "../components/shared/Blur";
 import SearchBar from "../components/shared/SearchBar";
 import { useSelector } from "react-redux";
 import { useShowSearch } from "../features/HomeSlice";
-import tw from "twrnc";
-
-const FirstRoute = () => (
-  <View style={tw`px-4 pt-2 bg-[#f6f6f6] flex-1 items-center justify-center`}>
-    <Text>Home</Text>
-  </View>
-);
+import { Header, HeaderSearch, Feed, Map } from "../components";
 
 const renderScene = SceneMap({
-  explore: FirstRoute,
+  explore: Feed,
   map: Map,
 });
 

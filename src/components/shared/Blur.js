@@ -3,7 +3,7 @@ import { MotiView } from "moti";
 import { useDispatch } from "react-redux";
 import { toggleShowSearch } from "../../features/HomeSlice";
 
-export default function Blur() {
+export function Blur() {
   const dispatch = useDispatch();
   return (
     <MotiView

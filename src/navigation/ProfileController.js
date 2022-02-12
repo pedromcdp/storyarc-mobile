@@ -1,4 +1,4 @@
-import { View, Text, Platform } from "react-native";
+import { Platform } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";

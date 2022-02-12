@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 import Settings from "./../../../assets/images/settings.svg";
 import Notifications from "./../../../assets/images/notifications.svg";
 
-export default function Header() {
+export function Header() {
   const navigation = useNavigation();
   return (
     <HStack mx={4} justifyContent="space-between" pt={21}>

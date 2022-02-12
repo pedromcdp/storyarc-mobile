@@ -5,7 +5,7 @@ import { toggleShowSearch } from "../../features/HomeSlice";
 
 import Search from "../../../assets/images/search.svg";
 
-export default function HeaderSearch() {
+export function HeaderSearch() {
   const dispatch = useDispatch();
 
   return (

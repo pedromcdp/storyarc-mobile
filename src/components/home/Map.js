@@ -4,7 +4,7 @@ import { MAPBOX_TOKEN } from "@env";
 
 MapboxGL.setAccessToken(`${MAPBOX_TOKEN}`);
 
-export default function Map() {
+export function Map() {
   return (
     <MapboxGL.MapView
       style={{ flex: 1 }}

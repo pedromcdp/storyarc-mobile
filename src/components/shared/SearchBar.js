@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { toggleShowSearch } from "../../features/HomeSlice";
 import { isIphoneX } from "react-native-iphone-x-helper";
 
-export default function SearchBar() {
+export function SearchBar() {
   const searchRef = useRef();
   const insets = useSafeAreaInsets();
   const dispatch = useDispatch();
