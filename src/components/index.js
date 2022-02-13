@@ -1,7 +1,6 @@
 //Home Components
 export { Header } from "./home/Header";
 export { HeaderSearch } from "./home/HeaderSearch";
-export { HighlightPost } from "./home/HighlightPost";
 export { Feed } from "./home/Feed";
 export { Map } from "./home/Map";
 //Shared Components

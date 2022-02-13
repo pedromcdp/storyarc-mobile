@@ -6,6 +6,7 @@ export default function HighlightContent({ children }) {
   setTimeout(() => {
     setIsLoaded(true);
   }, 2000);
+
   return (
     <VStack bg="white" pt={1} pb={4} pl={4}>
       <HStack
