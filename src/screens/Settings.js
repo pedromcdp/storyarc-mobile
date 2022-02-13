@@ -1,9 +1,12 @@
+//Packages Imports
 import { ScrollView, Text, Box } from "native-base";
 import { useSelector } from "react-redux";
+//Redux
 import {
   useAppSettings,
   setShowTabBarLabel,
 } from "../features/AppSettingsSlice";
+//Components
 import { CellRow } from "../components";
 
 export function Settings() {

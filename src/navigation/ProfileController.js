@@ -14,6 +14,7 @@ import {
   UserNotifications,
   About,
   Terms,
+  Policy,
 } from "../screens";
 
 const StackController = createNativeStackNavigator();
@@ -82,34 +83,33 @@ export default function ProfileController() {
               }}
             />
           </StackController.Group>
-          <StackController.Group>
-            <StackController.Screen
-              name="Terms"
-              component={Terms}
-              options={({ navigation, route }) => ({
-                title: route.params.title,
-                presentation: "modal",
-                headerLeft: () => {
-                  Platform.OS === "ios" && null;
-                },
-                headerRight: (props) =>
-                  Platform.OS === "ios" && (
-                    <TouchableOpacity
-                      {...props}
-                      onPress={() => {
-                        navigation.goBack();
-                      }}
-                      style={{
-                        backgroundColor: "#f6f6f6",
-                        borderRadius: 50,
-                        padding: 4,
-                      }}
-                    >
-                      <AntDesign name="close" size={24} />
-                    </TouchableOpacity>
-                  ),
-              })}
-            />
+          <StackController.Group
+            screenOptions={({ navigation, route }) => ({
+              title: route.params.title,
+              presentation: "modal",
+              headerLeft: () => {
+                Platform.OS === "ios" && null;
+              },
+              headerRight: (props) =>
+                Platform.OS === "ios" && (
+                  <TouchableOpacity
+                    {...props}
+                    onPress={() => {
+                      navigation.goBack();
+                    }}
+                    style={{
+                      backgroundColor: "#f6f6f6",
+                      borderRadius: 50,
+                      padding: 4,
+                    }}
+                  >
+                    <AntDesign name="close" size={24} />
+                  </TouchableOpacity>
+                ),
+            })}
+          >
+            <StackController.Screen name="Terms" component={Terms} />
+            <StackController.Screen name="Policy" component={Policy} />
           </StackController.Group>
         </>
       ) : (

@@ -1,15 +1,9 @@
-import React from "react";
-import { View, Text } from "react-native";
-import tw from "twrnc";
+import { Box, Text } from "native-base";
 
 export function Notifications() {
   return (
-    <View style={tw`flex-1 bg-white`}>
-      <Text>Notifications</Text>
-      <Text>Notifications</Text>
-      <Text>Notifications</Text>
-      <Text>Notifications</Text>
-      <Text>Notifications</Text>
-    </View>
+    <Box>
+      <Text>To be deleted</Text>
+    </Box>
   );
 }

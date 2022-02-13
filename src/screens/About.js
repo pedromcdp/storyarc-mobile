@@ -13,7 +13,13 @@ export function About() {
         routeName="Terms"
         routeParams={{ title: "Termos e Condições" }}
       />
-      <CellRow title="Informações legais" hasChild isPressable />
+      <CellRow
+        title="Política de Privacidade"
+        hasChild
+        isPressable
+        routeName="Policy"
+        routeParams={{ title: "Política de Privacidade" }}
+      />
       <CellRow title="storyarc.pt" hasChild openWeb isPressable />
     </ScrollView>
   );

@@ -3,7 +3,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-export default function ItemRow({ textContent, routeName }) {
+export function ItemRow({ textContent, routeName }) {
   const navigation = useNavigation();
   return (
     <TouchableOpacity onPress={() => navigation.navigate(`${routeName}`)}>

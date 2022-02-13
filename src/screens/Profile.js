@@ -1,10 +1,17 @@
+//Packages Imports
 import { Box, Button, Image, Text, VStack, ZStack, Avatar } from "native-base";
 import auth from "@react-native-firebase/auth";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import ItemRow from "../components/profile/ItemRow";
+//Redux
+import { useSelector } from "react-redux";
+import { useUser } from "../features/UserSlice";
+//Components
+import { ItemRow } from "../components";
 
 export function Profile() {
   const insets = useSafeAreaInsets();
+  const user = useSelector(useUser);
+  //uid
 
   function handleLogOut() {
     auth().signOut();
@@ -52,7 +59,7 @@ export function Profile() {
             />
           </Box>
           <Text fontFamily="Poppins_500Medium" fontSize={18}>
-            {auth().currentUser.displayName}
+            {user.displayName}
           </Text>
           <Button
             mb={10}

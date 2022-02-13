@@ -1,10 +1,13 @@
+//Packages Imports
 import { useState } from "react";
 import { useWindowDimensions, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
 import { MotiView, AnimatePresence } from "moti";
+//Redux
 import { useSelector } from "react-redux";
 import { useShowSearch } from "../features/HomeSlice";
+//Components
 import {
   Header,
   HeaderSearch,
@@ -38,6 +41,7 @@ export function Home() {
       </Text>
     );
   };
+
   const renderTabBar = (props) => (
     <TabBar
       {...props}
