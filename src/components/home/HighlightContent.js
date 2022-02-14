@@ -8,11 +8,11 @@ export default function HighlightContent({ children }) {
   }, 2000);
 
   return (
-    <VStack bg="white" pt={1} pb={4} pl={4}>
+    <VStack bg="white" pt={1} pb={4}>
       <HStack
         alignItems="center"
         pb={1.5}
-        pr={4}
+        px={4}
         justifyContent="space-between"
       >
         <Skeleton.Text

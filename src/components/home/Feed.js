@@ -25,21 +25,11 @@ export function Feed() {
           data={data}
           horizontal
           showsHorizontalScrollIndicator={false}
-          space={1.5}
-          renderItem={({ item }) => (
-            <Skeleton
-              mr={3}
-              h="48"
-              w="32"
-              borderRadius={10}
-              startColor="coolGray.100"
-              endColor="coolGray.300"
-            />
-          )}
+          initialNumToRender={3}
+          renderItem={({ item, index }) => <HighlightPost index={index} />}
           keyExtractor={(item, index) => index}
         />
       </HighlightContent>
-      <HighlightPost />
     </ScrollView>
   );
 }
