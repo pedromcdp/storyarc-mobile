@@ -3,7 +3,7 @@ import { HStack, VStack, Text, Pressable, Skeleton } from "native-base";
 
 export default function HighlightContent({ children, isLoaded }) {
   return (
-    <VStack bg="white" pt={1} pb={4}>
+    <VStack bg="white" pt={1} pb={4} shadow="1">
       <HStack
         alignItems="center"
         pb={1.5}

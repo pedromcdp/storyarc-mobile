@@ -5,6 +5,7 @@ import { RefreshControl } from "react-native";
 //Components
 import HighlightContent from "./HighlightContent";
 import HighlightPost from "./HighlightPost";
+import Post from "./Post";
 
 export function Feed() {
   const data = [...Array(10)];
@@ -42,6 +43,7 @@ export function Feed() {
           keyExtractor={(item, index) => index}
         />
       </HighlightContent>
+      <Post isLoaded={isLoaded} />
     </ScrollView>
   );
 }

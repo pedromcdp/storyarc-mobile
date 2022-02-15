@@ -11,10 +11,6 @@ import {
 } from "native-base";
 
 export default function HighlightPost({ index, isLoaded }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  setTimeout(() => {
-    setIsLoaded(true);
-  }, 2000);
   return (
     <ZStack
       width={140}

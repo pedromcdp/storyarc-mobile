@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   showSearch: false,
+  showCommentsModal: false,
 };
 
 const home = createSlice({
@@ -16,4 +17,5 @@ const home = createSlice({
 
 export const { toggleShowSearch } = home.actions;
 export const useShowSearch = (state) => state.home.showSearch;
+export const useShowCommentsModal = (state) => state.home.showCommentsModal;
 export default home.reducer;
