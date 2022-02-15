@@ -12,8 +12,12 @@ import {
 import SaveFilled from "./../../../assets/images/saveFilled.svg";
 import SaveOutline from "./../../../assets/images/saveOutline.svg";
 import CommentOutline from "./../../../assets/images/CommentOutline.svg";
+import Modal from "react-native-modal";
+import { View } from "react-native";
+import { useState } from "react";
 
-export default function Post({ isLoaded }) {
+export default function Post({ isLoaded, isScreen }) {
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <VStack bg="white" shadow="1" mt="4" py={2} space={2}>
       <HStack px={4} space={2}>
@@ -65,11 +69,11 @@ export default function Post({ isLoaded }) {
           rounded="full"
           startColor="coolGray.100"
           endColor="coolGray.300"
-          w="2/4"
+          w={isScreen ? "full" : "2/4"}
         >
           <Pressable
-            w="2/4"
-            borderRightWidth={1}
+            w={isScreen ? "full" : "2/4"}
+            borderRightWidth={isScreen ? 0 : 1}
             borderRightColor="#E5E7EB"
             _pressed={{ opacity: 20 }}
           >
@@ -84,9 +88,13 @@ export default function Post({ isLoaded }) {
           rounded="full"
           startColor="coolGray.100"
           endColor="coolGray.300"
-          w="2/4"
+          w={isScreen ? "0" : "2/4"}
         >
-          <Pressable w="2/4" _pressed={{ opacity: 20 }}>
+          <Pressable
+            w="2/4"
+            _pressed={{ opacity: 20 }}
+            onPress={() => setIsVisible(true)}
+          >
             <HStack justifyContent="center" alignItems="center" space="2">
               <CommentOutline />
               <Text>Comentários</Text>
@@ -94,6 +102,24 @@ export default function Post({ isLoaded }) {
           </Pressable>
         </Skeleton>
       </HStack>
+      <Modal
+        isVisible={isVisible}
+        style={{ justifyContent: "flex-end", margin: 0 }}
+        onSwipeComplete={() => setIsVisible(false)}
+        swipeDirection={["up", "left", "right", "down"]}
+        onBackdropPress={() => setIsVisible(false)}
+        backdropOpacity={0.8}
+      >
+        <Box
+          style={{
+            backgroundColor: "white",
+            height: "80%",
+            width: "100%",
+          }}
+        >
+          <Text>I am the modal content!</Text>
+        </Box>
+      </Modal>
     </VStack>
   );
 }

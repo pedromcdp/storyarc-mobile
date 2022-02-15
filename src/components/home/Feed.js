@@ -2,10 +2,13 @@
 import { useState, useCallback } from "react";
 import { ScrollView, FlatList } from "native-base";
 import { RefreshControl } from "react-native";
+import Modal from "react-native-modal";
 //Components
 import HighlightContent from "./HighlightContent";
 import HighlightPost from "./HighlightPost";
 import Post from "./Post";
+
+import { View, Text } from "react-native";
 
 export function Feed() {
   const data = [...Array(10)];
@@ -23,27 +26,29 @@ export function Feed() {
   }, 2000);
 
   return (
-    <ScrollView
-      flex={1}
-      bg="#f6f6f6"
-      pt={4}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-    >
-      <HighlightContent isLoaded={isLoaded}>
-        <FlatList
-          data={data}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          initialNumToRender={3}
-          renderItem={({ item, index }) => (
-            <HighlightPost index={index} isLoaded={isLoaded} />
-          )}
-          keyExtractor={(item, index) => index}
-        />
-      </HighlightContent>
-      <Post isLoaded={isLoaded} />
-    </ScrollView>
+    <>
+      <ScrollView
+        flex={1}
+        bg="#f6f6f6"
+        pt={4}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+        }
+      >
+        <HighlightContent isLoaded={isLoaded}>
+          <FlatList
+            data={data}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            initialNumToRender={3}
+            renderItem={({ item, index }) => (
+              <HighlightPost index={index} isLoaded={isLoaded} />
+            )}
+            keyExtractor={(item, index) => index}
+          />
+        </HighlightContent>
+        <Post isLoaded={isLoaded} />
+      </ScrollView>
+    </>
   );
 }
