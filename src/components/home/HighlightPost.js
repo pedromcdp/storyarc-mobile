@@ -10,11 +10,7 @@ import {
   Avatar,
 } from "native-base";
 
-//Testing
-// import db from "../../../server/db.json";
-
-export default function HighlightPost({ index }) {
-  // const demoPost = db.posts[0];
+export default function HighlightPost({ index, isLoaded }) {
   const [isLoaded, setIsLoaded] = useState(false);
   setTimeout(() => {
     setIsLoaded(true);

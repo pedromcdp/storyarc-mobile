@@ -1,12 +1,7 @@
-import { useState } from "react";
+//Packages Imports
 import { HStack, VStack, Text, Pressable, Skeleton } from "native-base";
 
-export default function HighlightContent({ children }) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  setTimeout(() => {
-    setIsLoaded(true);
-  }, 2000);
-
+export default function HighlightContent({ children, isLoaded }) {
   return (
     <VStack bg="white" pt={1} pb={4}>
       <HStack
