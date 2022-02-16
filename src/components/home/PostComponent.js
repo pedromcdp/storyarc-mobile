@@ -1,26 +1,37 @@
+//Packages Imports
 import {
-  Box,
   Text,
   VStack,
   HStack,
-  Avatar,
   Skeleton,
   Divider,
-  Image,
   Pressable,
 } from "native-base";
+import { Image } from "react-native";
+// redux
+import { useDispatch, useSelector } from "react-redux";
+import {
+  toggleShowCommentsModal,
+  useShowCommentsModal,
+} from "../../features/HomeSlice";
+//svg's
 import SaveFilled from "./../../../assets/images/saveFilled.svg";
 import SaveOutline from "./../../../assets/images/saveOutline.svg";
 import CommentOutline from "./../../../assets/images/CommentOutline.svg";
-import Modal from "react-native-modal";
-import { View } from "react-native";
-import { useState } from "react";
+//Components
+import CommentsModal from "./commentsModal";
+//db
+import db from "../../../server/db.json";
+//utils
+import { timeSince } from "../../utils/timeSince";
 
-export default function Post({ isLoaded, isScreen }) {
-  const [isVisible, setIsVisible] = useState(false);
+export default function PostComponent({ isLoaded, isScreen, post }) {
+  const dispatch = useDispatch();
+  const user = db.users.find((user) => user.id === post.userId);
+
   return (
     <VStack bg="white" shadow="1" mt="4" py={2} space={2}>
-      <HStack px={4} space={2}>
+      <HStack px={4} space={2} alignItems="center">
         <Skeleton
           size="10"
           rounded="full"
@@ -30,7 +41,16 @@ export default function Post({ isLoaded, isScreen }) {
           borderWidth="1"
           borderColor="#37B780"
         >
-          <Avatar size="10" borderWidth="1" borderColor="#37B780" />
+          <Image
+            source={{ uri: user.avatar }}
+            style={{
+              width: 35,
+              height: 35,
+              borderWidth: 1,
+              borderColor: "#37B780",
+              borderRadius: 100,
+            }}
+          />
         </Skeleton>
         <VStack w="full">
           <Skeleton.Text
@@ -40,9 +60,9 @@ export default function Post({ isLoaded, isScreen }) {
             startColor="coolGray.100"
             endColor="coolGray.300"
           >
-            <Text fontFamily="Poppins_500Medium">username</Text>
+            <Text fontFamily="Poppins_500Medium">{user.name}</Text>
             <Text fontFamily="Poppins_400Regular" sub>
-              Publicado há x anos
+              Publicado há {timeSince(post.postDate)}
             </Text>
           </Skeleton.Text>
         </VStack>
@@ -55,12 +75,27 @@ export default function Post({ isLoaded, isScreen }) {
         startColor="coolGray.100"
         endColor="coolGray.300"
       >
-        <Text px={4}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque purus
-          mi, molestie at nisl id, feugiat finibus justo. Phasellus venenatis
-          nibh et dui tristique iaculis.
-        </Text>
-        <Image alt="to be defined" />
+        {post.description && (
+          <Text px={4} pb={2}>
+            {post.description}
+          </Text>
+        )}
+        <HStack width="100%" height="sm">
+          <Image
+            source={{ uri: post.photo }}
+            style={{
+              flex: 1,
+              resizeMode: "cover",
+              maxWidth: post.postType === "comparacao" ? "50%" : "100%",
+            }}
+          />
+          {post.postType === "comparacao" && (
+            <Image
+              source={{ uri: post.new_photo }}
+              style={{ flex: 1, resizeMode: "cover", maxWidth: "50%" }}
+            />
+          )}
+        </HStack>
       </Skeleton>
       <Divider my={1} />
       <HStack alignItems="center" px={4}>
@@ -93,7 +128,9 @@ export default function Post({ isLoaded, isScreen }) {
           <Pressable
             w="2/4"
             _pressed={{ opacity: 20 }}
-            onPress={() => setIsVisible(true)}
+            onPress={() => {
+              dispatch(toggleShowCommentsModal());
+            }}
           >
             <HStack justifyContent="center" alignItems="center" space="2">
               <CommentOutline />
@@ -102,24 +139,7 @@ export default function Post({ isLoaded, isScreen }) {
           </Pressable>
         </Skeleton>
       </HStack>
-      <Modal
-        isVisible={isVisible}
-        style={{ justifyContent: "flex-end", margin: 0 }}
-        onSwipeComplete={() => setIsVisible(false)}
-        swipeDirection={["up", "left", "right", "down"]}
-        onBackdropPress={() => setIsVisible(false)}
-        backdropOpacity={0.8}
-      >
-        <Box
-          style={{
-            backgroundColor: "white",
-            height: "80%",
-            width: "100%",
-          }}
-        >
-          <Text>I am the modal content!</Text>
-        </Box>
-      </Modal>
+      <CommentsModal />
     </VStack>
   );
 }

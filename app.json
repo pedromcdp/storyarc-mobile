@@ -14,7 +14,6 @@
     "plugins": ["@react-native-mapbox-gl/maps", "@react-native-firebase/app"],
     "ios": {
       "googleServicesFile": "./GoogleService-Info.plist",
-      "bundleIdentifier": "com.pedromcdp.storyarc",
       "supportsTablet": false
     },
     "android": {

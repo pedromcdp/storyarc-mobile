@@ -1,14 +1,7 @@
 //Packages Imports
 import { useState } from "react";
-import {
-  Box,
-  Text,
-  Image,
-  ZStack,
-  VStack,
-  Skeleton,
-  Avatar,
-} from "native-base";
+import { Box, Text, ZStack, VStack, Skeleton, Avatar } from "native-base";
+import { Image } from "react-native";
 
 export default function HighlightPost({ index, isLoaded }) {
   return (
@@ -29,15 +22,15 @@ export default function HighlightPost({ index, isLoaded }) {
         height={"full"}
       >
         <Image
-          // source={{
-          //   uri: "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
-          // }}
-          source={require("../../../assets/images/profilebg.png")}
-          reziseMode="cover"
-          alt={"Demo"}
-          width="full"
-          height={"full"}
-          rounded="lg"
+          source={{
+            uri: "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
+          }}
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: 10,
+            resizeMode: "cover",
+          }}
         />
       </Skeleton>
       <Box
@@ -71,11 +64,15 @@ export default function HighlightPost({ index, isLoaded }) {
           size="8"
           rounded="full"
         >
-          <Avatar
-            size="sm"
-            borderWidth={1.2}
-            borderColor="white"
+          <Image
             source={require("../../../assets/images/user_img.png")}
+            style={{
+              width: 34,
+              height: 34,
+              borderWidth: 1.2,
+              borderColor: "white",
+              borderRadius: 100,
+            }}
           />
         </Skeleton>
         <Box>

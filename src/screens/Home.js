@@ -60,30 +60,32 @@ export function Home() {
   );
 
   return (
-    <MotiView
-      from={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        type: "timing",
-        duration: 320,
-      }}
-      style={{ flex: 1, backgroundColor: "#fff", paddingTop: insets.top }}
-    >
-      <Header />
-      <HeaderSearch />
-      <TabView
-        navigationState={{ index, routes }}
-        renderScene={renderScene}
-        renderTabBar={renderTabBar}
-        onIndexChange={setIndex}
-        initialLayout={{ width: layout.width }}
-        swipeEnabled={false}
-        style={{
-          backgroundColor: "white",
+    <>
+      <MotiView
+        from={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          type: "timing",
+          duration: 320,
         }}
-      />
-      <AnimatePresence>{showSearch && <Blur />}</AnimatePresence>
-      <AnimatePresence>{showSearch && <SearchBar />}</AnimatePresence>
-    </MotiView>
+        style={{ flex: 1, backgroundColor: "#fff", paddingTop: insets.top }}
+      >
+        <Header />
+        <HeaderSearch />
+        <TabView
+          navigationState={{ index, routes }}
+          renderScene={renderScene}
+          renderTabBar={renderTabBar}
+          onIndexChange={setIndex}
+          initialLayout={{ width: layout.width }}
+          swipeEnabled={false}
+          style={{
+            backgroundColor: "white",
+          }}
+        />
+        <AnimatePresence>{showSearch && <Blur />}</AnimatePresence>
+        <AnimatePresence>{showSearch && <SearchBar />}</AnimatePresence>
+      </MotiView>
+    </>
   );
 }

@@ -125,5 +125,3 @@ dist/
 # @end expo-cli
 
 .env
-
-server/

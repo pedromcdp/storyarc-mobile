@@ -21,7 +21,7 @@ export default function HighlightContent({ children, isLoaded }) {
             Conteúdos Certificados
           </Text>
         </Skeleton.Text>
-        <Skeleton.Text
+        {/* <Skeleton.Text
           lines={1}
           w="1/4"
           isLoaded={isLoaded}
@@ -33,7 +33,7 @@ export default function HighlightContent({ children, isLoaded }) {
               ver mais
             </Text>
           </Pressable>
-        </Skeleton.Text>
+        </Skeleton.Text> */}
       </HStack>
       {children}
     </VStack>

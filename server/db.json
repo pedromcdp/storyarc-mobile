@@ -1,0 +1,158 @@
+{
+  "posts": [
+    {
+      "id": 4,
+      "userId": 3,
+      "postType": "comparacao",
+      "title": "Escola Secundária José Estevão",
+      "description": "UA nos anos 2000 vs UA atualmente 😍 Consegue ver as diferenças?",
+      "photo": "https://media-exp1.licdn.com/dms/image/C4D22AQEkygNKGOhZSA/feedshare-shrink_1280/0/1644670835599?e=1648080000&v=beta&t=J9ekvchQycb0pLQvzrFITJGm5QuNzOLyp8WPd83G2LM",
+      "new_photo": "https://media-exp1.licdn.com/dms/image/C4D22AQGZWzoevj184Q/feedshare-shrink_1280/0/1644670838439?e=1648080000&v=beta&t=A87zpGBeDJmS_A4j79kkKeotvFHek4IB3d5FrBxqEx0",
+      "location": [40.6376416868948, -8.648330328603409],
+      "contentDate": "1960",
+      "postDate": "2022-02-16T19:36:41.388Z"
+    },
+    {
+      "id": 1,
+      "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+      "postType": "foto",
+      "title": "Escola Secundária José Estevão",
+      "description": "A Escola Secundária José Estevão na década de 60",
+      "photo": "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
+      "new_photo": null,
+      "location": [40.6376416868948, -8.648330328603409],
+      "contentDate": "1960",
+      "postDate": "2022-02-16T19:06:41.388Z"
+    },
+    {
+      "id": 2,
+      "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+      "postType": "comparacao",
+      "title": "Ponte de Carcavelos",
+      "description": null,
+      "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
+      "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
+      "location": [40.6453974473121, -8.654480643946753],
+      "contentDate": "1960",
+      "postDate": "2022-02-12T11:06:41.388Z"
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "postType": "foto",
+      "title": "Praça do comércio",
+      "description": null,
+      "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
+      "new_photo": null,
+      "location": [40.64168732868854, -8.653957347150298],
+      "contentDate": "1960",
+      "postDate": "2022-02-15T12:06:41.388Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+      "name": "Rui Jorge",
+      "password": "123",
+      "email": "ruijorge@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/men/29.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Joana Madalena",
+      "password": "123",
+      "email": "joanamadalena@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/women/3.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Universidade de Aveiro",
+      "password": "123",
+      "email": "ua@ua.com",
+      "avatar": "https://media-exp1.licdn.com/dms/image/C560BAQHAS4Z39hr8bw/company-logo_100_100/0/1519856535357?e=1652918400&v=beta&t=bZzD8jzjNiqIkZmHX64WyFIt1dfUvzGnn2UxZjpZVn4"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+      "body": "Amazing"
+    },
+    { "id": 2, "postId": 2, "userId": 2, "body": "Sweet" }
+  ],
+  "savedPosts": [
+    {
+      "id": 1,
+      "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+      "posts": [
+        {
+          "id": 2,
+          "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+          "postType": "comparacao",
+          "title": "Ponte de Carcavelos",
+          "description": null,
+          "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
+          "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
+          "location": [40.6453974473121, -8.654480643946753],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        },
+        {
+          "id": 3,
+          "userId": 2,
+          "postType": "comparacao",
+          "title": "Praça do comércio",
+          "description": null,
+          "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
+          "new_photo": null,
+          "location": [40.64168732868854, -8.653957347150298],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "posts": [
+        {
+          "id": 1,
+          "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+          "postType": "foto",
+          "title": "Escola Secundária José Estevão",
+          "description": "A Escola Secundária José Estevão na década de 60",
+          "photo": "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
+          "new_photo": null,
+          "location": [40.6376416868948, -8.648330328603409],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        },
+        {
+          "id": 2,
+          "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+          "postType": "comparacao",
+          "title": "Ponte de Carcavelos",
+          "description": null,
+          "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
+          "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
+          "location": [40.6453974473121, -8.654480643946753],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        },
+        {
+          "id": 3,
+          "userId": 2,
+          "postType": "comparacao",
+          "title": "Praça do comércio",
+          "description": null,
+          "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
+          "new_photo": null,
+          "location": [40.64168732868854, -8.653957347150298],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        }
+      ]
+    }
+  ]
+}

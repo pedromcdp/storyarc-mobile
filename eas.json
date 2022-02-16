@@ -8,6 +8,12 @@
         "buildType": "apk"
       }
     },
+    "preview_ios": {
+      "ios": {
+        "cocoapods": "1.11.2",
+        "simulator": true
+      }
+    },
     "development": {
       "distribution": "internal",
       "android": {
