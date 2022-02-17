@@ -1,5 +1,4 @@
 import { StatusBar } from "expo-status-bar";
-import { Modal, Text } from "react-native";
 import { NativeBaseProvider } from "native-base";
 import { Provider } from "react-redux";
 import { store } from "./src/app/store";
@@ -11,7 +10,7 @@ import {
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
 import AppLoading from "expo-app-loading";
-import { config } from "./src/theme";
+import { theme } from "./src/theme";
 import { LogBox } from "react-native";
 
 export default function App() {
@@ -25,17 +24,14 @@ export default function App() {
     return <AppLoading />;
   } else {
     return (
-      <NativeBaseProvider config={config}>
+      <Provider store={store}>
         <StatusBar style="dark" />
-        <Provider store={store}>
-          <Modal visible={false}>
-            <Text>Modalllll</Text>
-          </Modal>
+        <NativeBaseProvider theme={theme} config={theme.config}>
           <NavigationContainer>
             <NavigationController />
           </NavigationContainer>
-        </Provider>
-      </NativeBaseProvider>
+        </NativeBaseProvider>
+      </Provider>
     );
   }
 }

@@ -1,14 +1,23 @@
+//Packages Imports
 import { useState, useEffect } from "react";
 import { Keyboard, Alert, Image } from "react-native";
 import { VStack, HStack, Divider, Input, Pressable } from "native-base";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { MotiView } from "moti";
+import auth from "@react-native-firebase/auth";
+//Custom Hooks
+import { useKeyboard } from "../../../hooks/useKeyboard";
+// Svg
 import SendOutline from "../../../../assets/images/sendOutline.svg";
+//Temp DB
 import db from "../../../../server/db.json";
 
 export function ModalFooter() {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const [comment, setComment] = useState("");
   const insets = useSafeAreaInsets();
+  const currentUser = auth().currentUser;
+  const keyboardHeight = useKeyboard();
 
   useEffect(() => {
     const keyboardDidShowListener = Keyboard.addListener(
@@ -32,7 +41,6 @@ export function ModalFooter() {
 
   function handleSubmit() {
     if (comment.length === 0) {
-      console.log("here");
       return Alert.alert(
         "Erro",
         "É necessário que área de comentário seja preenchida para puder submeter",
@@ -51,24 +59,41 @@ export function ModalFooter() {
   }
 
   return (
-    <VStack bottom={0} bg="white" pb={isKeyboardVisible ? 0 : insets.bottom}>
+    // <VStack bottom={0} bg="white" pb={isKeyboardVisible ? 0 : insets.bottom}>
+    <MotiView
+      style={{
+        paddingBottom: isKeyboardVisible ? 0 : insets.bottom,
+        backgroundColor: "white",
+      }}
+      animate={{
+        paddingBottom: isKeyboardVisible ? 0 + keyboardHeight : insets.bottom,
+      }}
+      transition={{
+        type: "timing",
+        duration: 250,
+      }}
+    >
       <Divider />
       <HStack px={4} py={3.5} space={2}>
         <Image
           style={{
-            borderRadius: 100,
             width: 40,
             height: 40,
-            borderWidth: 2,
+            borderRadius: 100,
+            borderWidth: 1.3,
             borderColor: "#37B780",
-            resizeMode: "center",
           }}
-          source={{
-            uri: "https://images.unsplash.com/photo-1614289371518-722f2615943d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-          }}
+          source={
+            currentUser === null
+              ? require("../../../../assets/images/user_img.png")
+              : {
+                  uri: "https://images.unsplash.com/photo-1614289371518-722f2615943d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                }
+          }
         />
 
         <Input
+          isDisabled={currentUser === null ? true : false}
           value={comment}
           onChangeText={setComment}
           flexGrow={1}
@@ -93,6 +118,7 @@ export function ModalFooter() {
           }
         />
       </HStack>
-    </VStack>
+    </MotiView>
+    // </VStack>
   );
 }

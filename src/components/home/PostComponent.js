@@ -12,10 +12,7 @@ import { useNavigation } from "@react-navigation/native";
 import auth from "@react-native-firebase/auth";
 // redux
 import { useDispatch } from "react-redux";
-import {
-  toggleShowCommentsModal,
-  useShowCommentsModal,
-} from "../../features/HomeSlice";
+import { toggleShowCommentsModal } from "../../features/HomeSlice";
 //svg's
 import SaveFilled from "./../../../assets/images/saveFilled.svg";
 import SaveOutline from "./../../../assets/images/saveOutline.svg";
@@ -31,26 +28,26 @@ export function PostComponent({ isLoaded, isScreen, post }) {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const user = db.users.find((user) => user.id === post.userId);
-  const currentUser = db.users.find(
-    (user) => user.id === auth().currentUser.uid
-  );
-  const isSaved = db.posts.find((post) => post.id === currentUser.id);
-  console.log(currentUser);
+  if (auth().currentUser) {
+    const currentUser = db.users.find(
+      (user) => user.id === auth().currentUser.uid
+    );
+  }
+  // const isSaved = db.posts.find((post) => post.id === currentUser.id);
 
   return (
-    <VStack
-      bg="white"
-      shadow="1"
-      mt={isScreen ? 0 : 4}
-      py={2}
-      space={2}
-      onStartShouldSetResponder={() =>
-        navigation.navigate("Post", {
-          content: post,
-        })
-      }
-    >
-      <HStack px={4} space={2} alignItems="center">
+    <VStack bg="white" shadow="1" mt={isScreen ? 0 : 4} pb={2} space={2}>
+      <HStack
+        px={4}
+        pt={2}
+        space={2}
+        alignItems="center"
+        onStartShouldSetResponder={() =>
+          navigation.navigate("Post", {
+            content: post,
+          })
+        }
+      >
         <Skeleton
           size="10"
           rounded="full"
@@ -99,7 +96,7 @@ export function PostComponent({ isLoaded, isScreen, post }) {
             {post.description}
           </Text>
         )}
-        <HStack width="100%" height="sm">
+        <HStack width="100%" height="xs">
           <Image
             source={{ uri: post.photo }}
             style={{
@@ -158,7 +155,6 @@ export function PostComponent({ isLoaded, isScreen, post }) {
           </Pressable>
         </Skeleton>
       </HStack>
-      <CommentsModal />
     </VStack>
   );
 }

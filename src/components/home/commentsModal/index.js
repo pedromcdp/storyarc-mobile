@@ -4,7 +4,7 @@ import {
   useShowCommentsModal,
   toggleShowCommentsModal,
 } from "../../../features/HomeSlice";
-import { VStack } from "native-base";
+import { VStack, ScrollView } from "native-base";
 import ModalHeader from "./ModalHeader";
 import ModalBody from "./ModalBody";
 import { ModalFooter } from "./ModalFooter";
@@ -25,7 +25,7 @@ export default function CommentsModal() {
         dispatch(toggleShowCommentsModal());
       }}
       backdropOpacity={0.8}
-      avoidKeyboard
+      // avoidKeyboard
       propagateSwipe={true}
       hideModalContentWhileAnimating
     >
