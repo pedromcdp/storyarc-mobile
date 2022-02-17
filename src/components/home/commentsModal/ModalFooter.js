@@ -5,7 +5,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import SendOutline from "../../../../assets/images/sendOutline.svg";
 import db from "../../../../server/db.json";
 
-export default function ModalFooter() {
+export function ModalFooter() {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const [comment, setComment] = useState("");
   const insets = useSafeAreaInsets();

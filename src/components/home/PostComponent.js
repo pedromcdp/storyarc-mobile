@@ -8,8 +8,10 @@ import {
   Pressable,
 } from "native-base";
 import { Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import auth from "@react-native-firebase/auth";
 // redux
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   toggleShowCommentsModal,
   useShowCommentsModal,
@@ -25,12 +27,29 @@ import db from "../../../server/db.json";
 //utils
 import { timeSince } from "../../utils/timeSince";
 
-export default function PostComponent({ isLoaded, isScreen, post }) {
+export function PostComponent({ isLoaded, isScreen, post }) {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const user = db.users.find((user) => user.id === post.userId);
+  const currentUser = db.users.find(
+    (user) => user.id === auth().currentUser.uid
+  );
+  const isSaved = db.posts.find((post) => post.id === currentUser.id);
+  console.log(currentUser);
 
   return (
-    <VStack bg="white" shadow="1" mt="4" py={2} space={2}>
+    <VStack
+      bg="white"
+      shadow="1"
+      mt={isScreen ? 0 : 4}
+      py={2}
+      space={2}
+      onStartShouldSetResponder={() =>
+        navigation.navigate("Post", {
+          content: post,
+        })
+      }
+    >
       <HStack px={4} space={2} alignItems="center">
         <Skeleton
           size="10"

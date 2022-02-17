@@ -55,21 +55,24 @@
       "name": "Rui Jorge",
       "password": "123",
       "email": "ruijorge@gmail.com",
-      "avatar": "https://randomuser.me/api/portraits/men/29.jpg"
+      "avatar": "https://randomuser.me/api/portraits/men/29.jpg",
+      "savedPosts": [1, 3, 4]
     },
     {
       "id": 2,
       "name": "Joana Madalena",
       "password": "123",
       "email": "joanamadalena@gmail.com",
-      "avatar": "https://randomuser.me/api/portraits/women/3.jpg"
+      "avatar": "https://randomuser.me/api/portraits/women/3.jpg",
+      "savedPosts": [2, 1, 4]
     },
     {
       "id": 3,
       "name": "Universidade de Aveiro",
       "password": "123",
       "email": "ua@ua.com",
-      "avatar": "https://media-exp1.licdn.com/dms/image/C560BAQHAS4Z39hr8bw/company-logo_100_100/0/1519856535357?e=1652918400&v=beta&t=bZzD8jzjNiqIkZmHX64WyFIt1dfUvzGnn2UxZjpZVn4"
+      "avatar": "https://media-exp1.licdn.com/dms/image/C560BAQHAS4Z39hr8bw/company-logo_100_100/0/1519856535357?e=1652918400&v=beta&t=bZzD8jzjNiqIkZmHX64WyFIt1dfUvzGnn2UxZjpZVn4",
+      "savedPosts": [4]
     }
   ],
   "comments": [

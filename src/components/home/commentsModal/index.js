@@ -7,7 +7,7 @@ import {
 import { VStack } from "native-base";
 import ModalHeader from "./ModalHeader";
 import ModalBody from "./ModalBody";
-import ModalFooter from "./ModalFooter";
+import { ModalFooter } from "./ModalFooter";
 
 export default function CommentsModal() {
   const dispatch = useDispatch();

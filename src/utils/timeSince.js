@@ -13,9 +13,9 @@ export function timeSince(time) {
   }
   var time_formats = [
     [60, "segundos", 1], // 60
-    [120, "1 minuto ago", "1 minute from now"], // 60*2
+    [120, "1 minuto atrás", "1 minute from now"], // 60*2
     [3600, "minutos", 60], // 60*60, 60
-    [7200, "1 hora ago", "1 hour from now"], // 60*60*2
+    [7200, "1 hora atrás", "1 hour from now"], // 60*60*2
     [86400, "horas", 3600], // 60*60*24, 60*60
     [172800, "ontem", "amanhã"], // 60*60*24*2
     [604800, "dias", 86400], // 60*60*24*7, 60*60*24

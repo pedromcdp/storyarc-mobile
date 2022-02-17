@@ -5,7 +5,7 @@ import { RefreshControl } from "react-native";
 //Components
 import HighlightContent from "./HighlightContent";
 import HighlightPost from "./HighlightPost";
-import Post from "./PostComponent";
+import { PostComponent } from "./PostComponent";
 //db
 import db from "../../../server/db.json";
 
@@ -49,12 +49,12 @@ export function Feed() {
       <FlatList
         data={content}
         initialNumToRender={1}
-        renderItem={({ item }) => <Post post={item} isLoaded={isLoaded} />}
+        renderItem={({ item }) => (
+          <PostComponent post={item} isLoaded={isLoaded} />
+        )}
         keyExtractor={(item) => item.id}
       />
-      {/* <Post isLoaded={isLoaded} />
-      <Post isLoaded={isLoaded} /> */}
-      <Box size="3xs" />
+      <Box size="32" />
     </ScrollView>
   );
 }

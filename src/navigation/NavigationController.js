@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { useSelector, useDispatch } from "react-redux";
 import auth from "@react-native-firebase/auth";
@@ -13,10 +14,49 @@ import PersonFilled from "../../assets/images/PersonFilled.svg";
 import PersonRegular from "../../assets/images/PersonRegular.svg";
 import HomeController from "./HomeController";
 import ProfileController from "./ProfileController";
+import { Post } from "../screens";
+import { TouchableOpacity } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 const TabController = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function NavigationController() {
+  return (
+    <Stack.Navigator
+      screenOptions={({ navigation, route }) => ({
+        headerShown: false,
+        headerShadowVisible: false,
+        headerLeft: (props) => (
+          <TouchableOpacity
+            {...props}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          >
+            <AntDesign name="arrowleft" size={25} />
+          </TouchableOpacity>
+        ),
+        headerTitleStyle: {
+          fontFamily: "Poppins_500Medium",
+          fontSize: 18,
+        },
+      })}
+    >
+      <Stack.Screen name="TabBar" component={TabBarController} />
+      <Stack.Screen
+        name="Post"
+        component={Post}
+        options={{
+          headerShown: true,
+          title: "Publicação",
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function TabBarController() {
   const settings = useSelector(useAppSettings);
   const dispatch = useDispatch();
 

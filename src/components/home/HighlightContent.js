@@ -17,8 +17,8 @@ export default function HighlightContent({ children, isLoaded }) {
           startColor="coolGray.100"
           endColor="coolGray.300"
         >
-          <Text fontFamily="Poppins_500Medium" fontSize={20}>
-            Conteúdos Certificados
+          <Text fontFamily="Poppins_500Medium" fontSize={"lg"}>
+            Conteúdos Destacados
           </Text>
         </Skeleton.Text>
         {/* <Skeleton.Text

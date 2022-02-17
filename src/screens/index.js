@@ -11,3 +11,4 @@ export { Policy } from "./Policy";
 export { Home } from "./Home";
 export { Notifications } from "./Notifications";
 export { Settings } from "./Settings";
+export { Post } from "./Post";
