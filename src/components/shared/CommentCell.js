@@ -1,9 +1,10 @@
-import { Text, HStack, Box, VStack } from "native-base";
-import { View, Image } from "react-native";
-
+//Packages Imports
+import { Text, HStack, VStack } from "native-base";
+import { Image } from "react-native";
+//db
 import db from "../../../server/db.json";
 
-export default function CommentCell({ comment }) {
+export function CommentCell({ comment }) {
   user = db.users.find((user) => user.id === comment.userId);
 
   return (

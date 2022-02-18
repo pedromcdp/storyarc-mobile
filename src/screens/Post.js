@@ -1,18 +1,16 @@
+import { VStack, FlatList } from "native-base";
 import {
-  VStack,
-  KeyboardAvoidingView,
-  ScrollView,
-  FlatList,
-} from "native-base";
-import { PostComponent, ModalFooter } from "../components/";
-import CommentCell from "../components/shared/CommentCell";
+  PostComponent,
+  ModalFooter,
+  CommentCell,
+  EmptyCommentList,
+} from "../components/";
+
 import db from "../../server/db.json";
-import ModalBody from "../components/home/commentsModal/ModalBody";
 
 export function Post({ route }) {
   const post = route.params.content;
   comments = db.comments;
-  const test = KeyboardAvoidingView;
 
   return (
     <VStack flex={1} bg={"white"}>
@@ -20,6 +18,7 @@ export function Post({ route }) {
         ListHeaderComponent={
           <PostComponent isScreen post={post} isLoaded={true} />
         }
+        ListEmptyComponent={EmptyCommentList}
         data={comments}
         initialNumToRender={2}
         renderItem={({ item }) => <CommentCell comment={item} />}

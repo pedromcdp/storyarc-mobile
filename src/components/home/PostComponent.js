@@ -9,30 +9,19 @@ import {
 } from "native-base";
 import { Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import auth from "@react-native-firebase/auth";
-// redux
-import { useDispatch } from "react-redux";
-import { toggleShowCommentsModal } from "../../features/HomeSlice";
 //svg's
 import SaveFilled from "./../../../assets/images/saveFilled.svg";
 import SaveOutline from "./../../../assets/images/saveOutline.svg";
 import CommentOutline from "./../../../assets/images/CommentOutline.svg";
-//Components
-import CommentsModal from "./commentsModal";
 //db
 import db from "../../../server/db.json";
 //utils
 import { timeSince } from "../../utils/timeSince";
 
 export function PostComponent({ isLoaded, isScreen, post }) {
-  const dispatch = useDispatch();
   const navigation = useNavigation();
   const user = db.users.find((user) => user.id === post.userId);
-  if (auth().currentUser) {
-    const currentUser = db.users.find(
-      (user) => user.id === auth().currentUser.uid
-    );
-  }
+
   // const isSaved = db.posts.find((post) => post.id === currentUser.id);
 
   return (
@@ -144,9 +133,11 @@ export function PostComponent({ isLoaded, isScreen, post }) {
           <Pressable
             w="2/4"
             _pressed={{ opacity: 20 }}
-            onPress={() => {
-              dispatch(toggleShowCommentsModal());
-            }}
+            onPress={() =>
+              navigation.navigate("Comments", {
+                post: post,
+              })
+            }
           >
             <HStack justifyContent="center" alignItems="center" space="2">
               <CommentOutline />
