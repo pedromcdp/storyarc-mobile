@@ -1,23 +1,16 @@
-import React, { useRef, useEffect } from "react";
+//Packages Imports
 import { View, TextInput, TouchableOpacity } from "react-native";
 import { MotiView } from "moti";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { AntDesign } from "@expo/vector-icons";
-import tw from "twrnc";
-import Search from "../../../assets/images/search.svg";
-import { useDispatch } from "react-redux";
-import { toggleShowSearch } from "../../features/HomeSlice";
 import { isIphoneX } from "react-native-iphone-x-helper";
+import { AntDesign } from "@expo/vector-icons";
+import tw from "twrnc"; // --> to be replaced by native base
+//svg's
+import Search from "../../../assets/images/search.svg";
 
-export function SearchBar() {
-  const searchRef = useRef();
+export function SearchBar({ navigation, value, setValue, handleChange }) {
   const insets = useSafeAreaInsets();
-  const dispatch = useDispatch();
   const notchedIphone = isIphoneX();
-
-  useEffect(() => {
-    searchRef.current.focus();
-  });
 
   return (
     <MotiView
@@ -28,10 +21,9 @@ export function SearchBar() {
       }}
       transition={{
         type: "timing",
-        duration: 200,
+        duration: 320,
       }}
       style={{
-        position: "absolute",
         backgroundColor: "white",
         top: 0,
         width: "100%",
@@ -39,7 +31,7 @@ export function SearchBar() {
       }}
     >
       <View style={tw`mx-4 pt-[${insets.top}] flex-row h-full items-center`}>
-        <TouchableOpacity onPress={() => dispatch(toggleShowSearch())}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
           <AntDesign
             name="arrowleft"
             size={25}
@@ -61,7 +53,10 @@ export function SearchBar() {
             }}
           />
           <TextInput
-            ref={searchRef}
+            autoFocus
+            value={value}
+            onChangeText={setValue}
+            onChange={handleChange}
             placeholder="pesquise por locais"
             placeholderTextColor={"#909090"}
             style={({ fontFamily: "Poppins_400Regular" }, tw`flex-1`)}
