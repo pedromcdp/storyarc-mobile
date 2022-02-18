@@ -6,7 +6,6 @@ import { RefreshControl } from "react-native";
 import HighlightContent from "./HighlightContent";
 import HighlightPost from "./HighlightPost";
 import { PostComponent } from "./PostComponent";
-import CommentsModal from "./commentsModal";
 //db
 import db from "../../../server/db.json";
 
@@ -27,8 +26,9 @@ export function Feed() {
   }, 2000);
 
   return (
-    <Box flex={1} pt={4} bg="#f6f6f6">
+    <Box flex={1} bg="#f6f6f6">
       <FlatList
+        pt={4}
         pb={"72"}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -45,10 +45,8 @@ export function Feed() {
               )}
               keyExtractor={(item, index) => index}
             />
-            <CommentsModal />
           </HighlightContent>
         )}
-        ListEmptyComponent={CommentsModal}
         data={content}
         initialNumToRender={1}
         renderItem={({ item }) => (
@@ -93,37 +91,37 @@ export function Feed() {
   // );
 }
 
-function fix() {
-  return (
-    <Box>
-      <FlatList
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-        ListHeaderComponent={() => {
-          <HighlightContent isLoaded={isLoaded}>
-            <FlatList
-              data={data}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              initialNumToRender={3}
-              renderItem={({ item, index }) => (
-                <HighlightPost index={index} isLoaded={isLoaded} />
-              )}
-              keyExtractor={(item, index) => index}
-            />
-          </HighlightContent>;
-        }}
-        data={content}
-        initialNumToRender={1}
-        renderItem={({ item }) => (
-          <PostComponent post={item} isLoaded={isLoaded} />
-        )}
-        keyExtractor={(item) => item.id}
-        ListFooterComponent={CommentsModal}
-      />
-    </Box>
-  );
-}
+// function fix() {
+//   return (
+//     <Box>
+//       <FlatList
+//         refreshControl={
+//           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+//         }
+//         ListHeaderComponent={() => {
+//           <HighlightContent isLoaded={isLoaded}>
+//             <FlatList
+//               data={data}
+//               horizontal
+//               showsHorizontalScrollIndicator={false}
+//               initialNumToRender={3}
+//               renderItem={({ item, index }) => (
+//                 <HighlightPost index={index} isLoaded={isLoaded} />
+//               )}
+//               keyExtractor={(item, index) => index}
+//             />
+//           </HighlightContent>;
+//         }}
+//         data={content}
+//         initialNumToRender={1}
+//         renderItem={({ item }) => (
+//           <PostComponent post={item} isLoaded={isLoaded} />
+//         )}
+//         keyExtractor={(item) => item.id}
+//         ListFooterComponent={CommentsModal}
+//       />
+//     </Box>
+//   );
+// }
 
 //CommentsModal

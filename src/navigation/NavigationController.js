@@ -27,6 +27,7 @@ export default function NavigationController() {
       screenOptions={({ navigation, route }) => ({
         headerShown: false,
         headerShadowVisible: false,
+        headerTitleAlign: "center",
         headerLeft: (props) => (
           <TouchableOpacity
             {...props}
@@ -72,7 +73,7 @@ function TabBarController() {
   return (
     <TabController.Navigator
       screenOptions={{
-        tabBarHideOnKeyboard: true,
+        // tabBarHideOnKeyboard: true,
         detachInactiveScreens: true,
         tabBarShowLabel: settings.showTabBarLabel,
         tabBarBackground: () => <TabBar />,

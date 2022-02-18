@@ -1,11 +1,12 @@
+//Packages Imports
 import { Platform } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
 import { AntDesign } from "@expo/vector-icons";
-
+//Redux
 import { useUser } from "./../features/UserSlice";
-
+//Screens
 import {
   Profile,
   LogIn,

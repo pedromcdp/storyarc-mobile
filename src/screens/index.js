@@ -12,3 +12,5 @@ export { Home } from "./Home";
 export { Notifications } from "./Notifications";
 export { Settings } from "./Settings";
 export { Post } from "./Post";
+export { Comments } from "./Comments";
+export { Search } from "./Search";

@@ -19,10 +19,10 @@ export function Comments({ navigation, route }) {
     <VStack flex={1} justifyContent={"flex-end"}>
       <StatusBar style="light" />
       <VStack h="90%" bg={"white"} borderTopRadius="xl">
+        <ModalHeader navigation={navigation} />
         <FlatList
           data={comments}
           initialNumToRender={10}
-          ListHeaderComponent={<ModalHeader navigation={navigation} />}
           ListEmptyComponent={EmptyCommentList}
           renderItem={({ item }) => <CommentCell comment={item} />}
           keyExtractor={(item) => item.id}

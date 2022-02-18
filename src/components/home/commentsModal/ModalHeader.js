@@ -1,10 +1,8 @@
+//Packages Imports
 import { VStack, HStack, Box, Text, Pressable, Divider } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
-import { useDispatch } from "react-redux";
-import { toggleShowCommentsModal } from "../../../features/HomeSlice";
 
-export default function ModalHeader() {
-  const dispatch = useDispatch();
+export function ModalHeader({ navigation }) {
   return (
     <VStack space={2}>
       <Box w={12} h={1.5} rounded="md" bg="#e6e6e6" alignSelf="center" mt={2} />
@@ -17,7 +15,7 @@ export default function ModalHeader() {
           rounded="full"
           p={1.5}
           onPress={() => {
-            dispatch(toggleShowCommentsModal());
+            navigation.goBack();
           }}
         >
           <AntDesign name="close" size={24} />

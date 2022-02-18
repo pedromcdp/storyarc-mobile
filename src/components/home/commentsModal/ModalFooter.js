@@ -1,7 +1,7 @@
 //Packages Imports
 import { useState, useEffect } from "react";
 import { Keyboard, Alert, Image } from "react-native";
-import { VStack, HStack, Divider, Input, Pressable } from "native-base";
+import { HStack, Divider, Input, Pressable } from "native-base";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MotiView } from "moti";
 import auth from "@react-native-firebase/auth";
@@ -9,7 +9,7 @@ import auth from "@react-native-firebase/auth";
 import { useKeyboard } from "../../../hooks/useKeyboard";
 // Svg
 import SendOutline from "../../../../assets/images/sendOutline.svg";
-//Temp DB
+//db
 import db from "../../../../server/db.json";
 
 export function ModalFooter() {
@@ -59,7 +59,6 @@ export function ModalFooter() {
   }
 
   return (
-    // <VStack bottom={0} bg="white" pb={isKeyboardVisible ? 0 : insets.bottom}>
     <MotiView
       style={{
         paddingBottom: isKeyboardVisible ? 0 : insets.bottom,
@@ -119,6 +118,5 @@ export function ModalFooter() {
         />
       </HStack>
     </MotiView>
-    // </VStack>
   );
 }
