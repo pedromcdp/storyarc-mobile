@@ -20,7 +20,7 @@ import {
 
 const StackController = createNativeStackNavigator();
 
-export default function ProfileController() {
+export function ProfileController() {
   const user = useSelector(useUser);
 
   return (

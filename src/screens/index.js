@@ -11,6 +11,7 @@ export { Policy } from "./Policy";
 export { Home } from "./Home";
 export { Notifications } from "./Notifications";
 export { Settings } from "./Settings";
+export { SearchResults } from "./SearchResults";
 export { Post } from "./Post";
 export { Comments } from "./Comments";
 export { Search } from "./Search";

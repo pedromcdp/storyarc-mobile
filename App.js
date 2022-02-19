@@ -3,7 +3,7 @@ import { NativeBaseProvider } from "native-base";
 import { Provider } from "react-redux";
 import { store } from "./src/app/store";
 import { NavigationContainer } from "@react-navigation/native";
-import NavigationController from "./src/navigation/NavigationController";
+import { NavigationController } from "./src/navigation";
 import {
   useFonts,
   Poppins_500Medium,

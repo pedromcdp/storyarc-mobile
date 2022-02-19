@@ -14,6 +14,7 @@ export function SearchBar({ navigation, value, setValue, handleChange }) {
 
   return (
     <MotiView
+      delay={50}
       from={{ top: -100 }}
       animate={{ top: 0 }}
       exit={{
@@ -21,7 +22,7 @@ export function SearchBar({ navigation, value, setValue, handleChange }) {
       }}
       transition={{
         type: "timing",
-        duration: 320,
+        duration: 200,
       }}
       style={{
         backgroundColor: "white",
@@ -40,7 +41,7 @@ export function SearchBar({ navigation, value, setValue, handleChange }) {
           />
         </TouchableOpacity>
         <View
-          style={tw`bg-[#f6f6f6] rounded-[20px] h-10 px-5 flex-row flex-grow items-center`}
+          style={tw`bg-[#f6f6f6] rounded-[20px] h-10 px-3 flex-row flex-grow items-center`}
         >
           <Search
             width={20}

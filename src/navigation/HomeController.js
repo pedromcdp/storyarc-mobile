@@ -2,12 +2,14 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
 //Screens
 import { Home, Notifications, Settings, Comments, Search } from "../screens";
 
 const StackController = createNativeStackNavigator();
 
-export default function HomeController({ navigation }) {
+export function HomeController() {
+  const navigation = useNavigation();
   return (
     <StackController.Navigator
       initialRouteName="Home"

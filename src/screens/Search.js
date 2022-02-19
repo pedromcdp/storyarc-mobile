@@ -1,9 +1,9 @@
 //Packages Imports
 import { useState, useEffect } from "react";
-import { VStack, Text, Pressable, FlatList } from "native-base";
+import { VStack } from "native-base";
 //Components
-import { SearchBar } from "../components";
-
+import { SearchBar, SearchResultCell } from "../components";
+//db
 import db from "../../server/db.json";
 
 export function Search({ navigation }) {
@@ -40,35 +40,9 @@ export function Search({ navigation }) {
         setValue={setSearchInput}
         handleChange={handleChange}
       />
-      <FlatList
-        pt={2}
-        data={searchResults}
-        renderItem={({ item }) => (
-          <SearchResultCell location={item.streetName} />
-        )}
-        keyExtractor={(item) => item.id}
-      />
+      {searchResults?.map((location) => (
+        <SearchResultCell key={location.id} location={location.streetName} />
+      ))}
     </VStack>
-  );
-}
-
-function SearchResultCell({ location }) {
-  return (
-    <Pressable
-      bg="white"
-      borderBottomWidth={1}
-      borderBottomColor="#E2E2E2"
-      _pressed={{ bg: "coolGray.100" }}
-    >
-      <Text
-        py={6}
-        px={4}
-        fontFamily="Poppins_500Medium"
-        color="black"
-        fontSize={14}
-      >
-        {location}
-      </Text>
-    </Pressable>
   );
 }

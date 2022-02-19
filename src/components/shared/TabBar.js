@@ -1,7 +1,7 @@
 import { Image, Dimensions } from "react-native";
 import { isIphoneX } from "react-native-iphone-x-helper";
 
-export default function TabBar() {
+export function TabBar() {
   const notchedIphone = isIphoneX();
   return (
     <Image
