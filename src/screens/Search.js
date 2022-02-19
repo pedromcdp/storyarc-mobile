@@ -19,12 +19,14 @@ export function Search({ navigation }) {
   }, [searchInput]);
 
   function handleChange() {
-    setSearchResults(
-      locations.filter((location) => {
-        const regex = new RegExp(`^${searchInput}`, "gi");
-        return location.streetName.match(regex);
-      })
-    );
+    if (searchInput?.length > 0) {
+      setSearchResults(
+        locations.filter((location) => {
+          const regex = new RegExp(`^${searchInput}`, "gi");
+          return location.streetName.match(regex);
+        })
+      );
+    }
   }
 
   return (

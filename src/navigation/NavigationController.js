@@ -17,6 +17,7 @@ import ProfileController from "./ProfileController";
 import { Post } from "../screens";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import AddButton from "../components/shared/AddButton";
 
 const TabController = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -71,75 +72,78 @@ function TabBarController() {
   }, []);
 
   return (
-    <TabController.Navigator
-      screenOptions={{
-        // tabBarHideOnKeyboard: true,
-        detachInactiveScreens: true,
-        tabBarShowLabel: settings.showTabBarLabel,
-        tabBarBackground: () => <TabBar />,
-        tabBarStyle: {
-          backgroundColor: "transparent",
-          borderTopWidth: 0,
-          position: "absolute",
-          elevation: 0,
-        },
-        tabBarLabelStyle: { fontFamily: "Poppins_400Regular" },
-        headerShown: false,
-        tabBarActiveTintColor: "#000",
-      }}
-    >
-      <TabController.Screen
-        name="TabHome"
-        component={HomeController}
-        options={{
-          title: "Ecrã inicial",
-          tabBarIcon: ({ focused }) => {
-            return focused ? (
-              <HomeFilled
-                width={settings.showTabBarLabel ? 25 : 30}
-                height={settings.showTabBarLabel ? 25 : 30}
-                style={{
-                  color: "black",
-                }}
-              />
-            ) : (
-              <HomeRegular
-                width={settings.showTabBarLabel ? 25 : 30}
-                height={settings.showTabBarLabel ? 25 : 30}
-                style={{
-                  color: "black",
-                }}
-              />
-            );
+    <>
+      <TabController.Navigator
+        screenOptions={{
+          // tabBarHideOnKeyboard: true,
+          detachInactiveScreens: true,
+          tabBarShowLabel: settings.showTabBarLabel,
+          tabBarBackground: () => <TabBar />,
+          tabBarStyle: {
+            backgroundColor: "transparent",
+            borderTopWidth: 0,
+            position: "absolute",
+            elevation: 0,
           },
+          tabBarLabelStyle: { fontFamily: "Poppins_400Regular" },
+          headerShown: false,
+          tabBarActiveTintColor: "#000",
         }}
-      />
-      <TabController.Screen
-        name="TabProfile"
-        component={ProfileController}
-        options={{
-          title: "Perfil",
-          tabBarIcon: ({ focused }) => {
-            return focused ? (
-              <PersonFilled
-                width={settings.showTabBarLabel ? 25 : 30}
-                height={settings.showTabBarLabel ? 25 : 30}
-                style={{
-                  color: "black",
-                }}
-              />
-            ) : (
-              <PersonRegular
-                width={settings.showTabBarLabel ? 25 : 30}
-                height={settings.showTabBarLabel ? 25 : 30}
-                style={{
-                  color: "black",
-                }}
-              />
-            );
-          },
-        }}
-      />
-    </TabController.Navigator>
+      >
+        <TabController.Screen
+          name="TabHome"
+          component={HomeController}
+          options={{
+            title: "Ecrã inicial",
+            tabBarIcon: ({ focused }) => {
+              return focused ? (
+                <HomeFilled
+                  width={settings.showTabBarLabel ? 25 : 30}
+                  height={settings.showTabBarLabel ? 25 : 30}
+                  style={{
+                    color: "black",
+                  }}
+                />
+              ) : (
+                <HomeRegular
+                  width={settings.showTabBarLabel ? 25 : 30}
+                  height={settings.showTabBarLabel ? 25 : 30}
+                  style={{
+                    color: "black",
+                  }}
+                />
+              );
+            },
+          }}
+        />
+        <TabController.Screen
+          name="TabProfile"
+          component={ProfileController}
+          options={{
+            title: "Perfil",
+            tabBarIcon: ({ focused }) => {
+              return focused ? (
+                <PersonFilled
+                  width={settings.showTabBarLabel ? 25 : 30}
+                  height={settings.showTabBarLabel ? 25 : 30}
+                  style={{
+                    color: "black",
+                  }}
+                />
+              ) : (
+                <PersonRegular
+                  width={settings.showTabBarLabel ? 25 : 30}
+                  height={settings.showTabBarLabel ? 25 : 30}
+                  style={{
+                    color: "black",
+                  }}
+                />
+              );
+            },
+          }}
+        />
+      </TabController.Navigator>
+      <AddButton />
+    </>
   );
 }
