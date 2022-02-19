@@ -27,6 +27,7 @@ export function AddButton() {
         },
         shadowOpacity: 0.20000000298023224,
         shadowRadius: 4,
+        elevation: 1,
       }}
     >
       <AntDesign
