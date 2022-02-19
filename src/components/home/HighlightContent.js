@@ -1,5 +1,5 @@
 //Packages Imports
-import { HStack, VStack, Text, Pressable, Skeleton } from "native-base";
+import { HStack, VStack, Text, Skeleton } from "native-base";
 
 export default function HighlightContent({ children, isLoaded }) {
   return (

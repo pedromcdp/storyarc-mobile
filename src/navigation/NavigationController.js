@@ -2,7 +2,9 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+//navigation
 import { TabBarController } from "./TabBarController";
+//screens
 import { Post } from "../screens";
 
 const Stack = createNativeStackNavigator();

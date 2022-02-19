@@ -1,6 +1,5 @@
 //Packages Imports
-import { useState } from "react";
-import { Box, Text, ZStack, VStack, Skeleton, Avatar } from "native-base";
+import { Box, Text, ZStack, VStack, Skeleton } from "native-base";
 import { Image } from "react-native";
 
 export default function HighlightPost({ index, isLoaded }) {

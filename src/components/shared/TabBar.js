@@ -1,3 +1,4 @@
+//Packages Imports
 import { Image, Dimensions } from "react-native";
 import { isIphoneX } from "react-native-iphone-x-helper";
 

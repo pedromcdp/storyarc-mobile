@@ -1,3 +1,4 @@
+//Packages Imports
 import { Pressable, Text } from "native-base";
 
 export function SearchResultCell({ location }) {
