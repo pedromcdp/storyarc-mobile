@@ -30,7 +30,10 @@ export function Map() {
         />
       ))}
 
-      <MapboxGL.Camera zoomLevel={15.31} centerCoordinate={[-8.656, 40.638]} />
+      <MapboxGL.Camera
+        zoomLevel={15.31}
+        centerCoordinate={[-8.65362, 40.6412]}
+      />
     </MapboxGL.MapView>
   );
 }
