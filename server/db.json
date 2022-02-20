@@ -9,6 +9,7 @@
       "photo": "https://media-exp1.licdn.com/dms/image/C4D22AQEkygNKGOhZSA/feedshare-shrink_1280/0/1644670835599?e=1648080000&v=beta&t=J9ekvchQycb0pLQvzrFITJGm5QuNzOLyp8WPd83G2LM",
       "new_photo": "https://media-exp1.licdn.com/dms/image/C4D22AQGZWzoevj184Q/feedshare-shrink_1280/0/1644670838439?e=1648080000&v=beta&t=A87zpGBeDJmS_A4j79kkKeotvFHek4IB3d5FrBxqEx0",
       "location": [40.6376416868948, -8.648330328603409],
+      "streetName": "Universidade de Aveiro",
       "contentDate": "1960",
       "postDate": "2022-02-16T19:36:41.388Z"
     },
@@ -21,6 +22,7 @@
       "photo": "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
       "new_photo": null,
       "location": [40.6376416868948, -8.648330328603409],
+      "streetName": "Escola Secundária José Estevão",
       "contentDate": "1960",
       "postDate": "2022-02-16T19:06:41.388Z"
     },
@@ -33,6 +35,7 @@
       "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
       "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
       "location": [40.6453974473121, -8.654480643946753],
+      "streetName": "Universidade de Aveiro",
       "contentDate": "1960",
       "postDate": "2022-02-12T11:06:41.388Z"
     },
@@ -45,6 +48,7 @@
       "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
       "new_photo": null,
       "location": [40.64168732868854, -8.653957347150298],
+      "streetName": "Universidade de Aveiro",
       "contentDate": "1960",
       "postDate": "2022-02-15T12:06:41.388Z"
     }
@@ -173,8 +177,23 @@
     }
   ],
   "locations": [
-    { "id": 0, "streetName": "Universidade de Aveiro" },
-    { "id": 1, "streetName": "Escola Secundária José Estevão" },
-    { "id": 2, "streetName": "Praça do Comércio" }
+    {
+      "id": 0,
+      "name": "Universidade de Aveiro",
+      "address": "Universidade de Aveiro, 3810-193 Aveiro",
+      "coordinates": [40.630611648811644, -8.657494288431876]
+    },
+    {
+      "id": 1,
+      "name": "Escola Secundária José Estevão",
+      "address": "Avenida 25 de Abril, 3811-901 Aveiro",
+      "coordinates": [40.63771205702211, -8.648373106456553]
+    },
+    {
+      "id": 2,
+      "name": "Praça do Comércio",
+      "address": "R. João Mendonça, 3800-202 Aveiro",
+      "coordinates": [40.64165159545119, -8.653941757573282]
+    }
   ]
 }
