@@ -1,6 +1,8 @@
 //Packages Imports
 import { useState, useEffect } from "react";
-import { VStack } from "native-base";
+import { VStack, Box, Text } from "native-base";
+import { MaterialIcons } from "@expo/vector-icons";
+import LottieView from "lottie-react-native";
 //Components
 import { SearchBar, SearchResultCell } from "../components";
 //db
@@ -23,7 +25,7 @@ export function Search({ navigation }) {
       setSearchResults(
         locations.filter((location) => {
           const regex = new RegExp(`^${searchInput}`, "gi");
-          return location.streetName.match(regex);
+          return location.name.match(regex);
         })
       );
     }
@@ -32,7 +34,7 @@ export function Search({ navigation }) {
   return (
     <VStack
       flex={1}
-      bg={searchResults?.length === 0 ? "rgba(0, 0, 0, 0.8)" : "white"}
+      bg={searchResults?.length === 0 ? "rgba(255, 255, 255, 1)" : "white"}
     >
       <SearchBar
         navigation={navigation}
@@ -40,9 +42,23 @@ export function Search({ navigation }) {
         setValue={setSearchInput}
         handleChange={handleChange}
       />
-      {searchResults?.map((location) => (
-        <SearchResultCell key={location.id} location={location.streetName} />
-      ))}
+      {searchInput.length === 0 ? (
+        <VStack space={3} alignItems="center" justifyContent={"center"}>
+          <LottieView
+            source={require("../animations/searching.json")}
+            autoPlay
+            loop
+            style={{ width: 100, height: 80 }}
+          />
+          <Text fontFamily="Poppins_400Regular">
+            Comece a digitar para lhe aparecerem sugestões
+          </Text>
+        </VStack>
+      ) : (
+        searchResults?.map((location) => (
+          <SearchResultCell key={location.id} location={location.name} />
+        ))
+      )}
     </VStack>
   );
 }
