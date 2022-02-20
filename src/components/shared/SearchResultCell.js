@@ -1,7 +1,10 @@
 //Packages Imports
 import { Pressable, Text } from "native-base";
+import { useNavigation } from "@react-navigation/native";
 
 export function SearchResultCell({ location }) {
+  const navigation = useNavigation();
+
   return (
     <Pressable
       bg="white"
@@ -9,6 +12,7 @@ export function SearchResultCell({ location }) {
       borderTopWidth={1}
       borderColor="#E2E2E2"
       _pressed={{ bg: "coolGray.100" }}
+      onPress={() => navigation.navigate("SearchResults", { title: location })}
     >
       <Text
         py={6}

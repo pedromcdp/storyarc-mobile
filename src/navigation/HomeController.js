@@ -4,7 +4,14 @@ import { TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 //Screens
-import { Home, Notifications, Settings, Comments, Search } from "../screens";
+import {
+  Home,
+  Notifications,
+  Settings,
+  Comments,
+  Search,
+  SearchResults,
+} from "../screens";
 
 const StackController = createNativeStackNavigator();
 
@@ -53,6 +60,11 @@ export function HomeController() {
             title: "Definições",
           }}
         />
+        <StackController.Screen
+          name="Search"
+          component={Search}
+          options={{ headerShown: false }}
+        />
       </StackController.Group>
       <StackController.Group screenOptions={{ presentation: "modal" }}>
         <StackController.Screen
@@ -62,15 +74,6 @@ export function HomeController() {
             headerShown: false,
             contentStyle: { backgroundColor: "transparent" },
           }}
-        />
-      </StackController.Group>
-      <StackController.Group
-        screenOptions={{ presentation: "transparentModal", animation: "fade" }}
-      >
-        <StackController.Screen
-          name="Search"
-          component={Search}
-          options={{ headerShown: false }}
         />
       </StackController.Group>
     </StackController.Navigator>

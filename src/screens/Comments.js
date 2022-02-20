@@ -23,7 +23,7 @@ export function Comments({ navigation, route }) {
         <FlatList
           data={comments}
           initialNumToRender={10}
-          ListEmptyComponent={EmptyCommentList}
+          ListEmptyComponent={() => <EmptyCommentList erro="Sem comentários" />}
           renderItem={({ item }) => <CommentCell comment={item} />}
           keyExtractor={(item) => item.id}
           ListFooterComponent={() => <Box size="10" />}

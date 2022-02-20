@@ -1,4 +1,5 @@
 //Packages Imports
+import { useState } from "react";
 import {
   Text,
   VStack,
@@ -18,12 +19,15 @@ import db from "../../../server/db.json";
 //utils
 import { timeSince } from "../../utils/timeSince";
 
-export function PostComponent({ isLoaded, isScreen, post }) {
+export function PostComponent({ isLoaded, isScreen, post, searchResult }) {
   const navigation = useNavigation();
   const user = db.users.find((user) => user.id === post.userId);
 
-  // const isSaved = db.posts.find((post) => post.id === currentUser.id);
+  const [isSaved, setIsSaved] = useState(false);
 
+  function handleSave() {
+    setIsSaved(!isSaved);
+  }
   return (
     <VStack bg="white" shadow="1" mt={isScreen ? 0 : 4} pb={2} space={2}>
       <HStack
@@ -67,7 +71,10 @@ export function PostComponent({ isLoaded, isScreen, post }) {
           >
             <Text fontFamily="Poppins_500Medium">{user.name}</Text>
             <Text fontFamily="Poppins_400Regular" sub>
-              Publicado há {timeSince(post.postDate)}
+              Publicado{" "}
+              {timeSince(post.postDate) === "ontem"
+                ? timeSince(post.postDate)
+                : "há " + timeSince(post.postDate)}
             </Text>
           </Skeleton.Text>
         </VStack>
@@ -116,10 +123,20 @@ export function PostComponent({ isLoaded, isScreen, post }) {
             borderRightWidth={isScreen ? 0 : 1}
             borderRightColor="#E5E7EB"
             _pressed={{ opacity: 20 }}
+            onPress={handleSave}
           >
             <HStack justifyContent="center" alignItems="center" space="2">
-              <SaveOutline />
-              <Text>Guardar</Text>
+              {isSaved ? (
+                <>
+                  <SaveFilled />
+                  <Text fontFamily="Poppins_400Regular">Guardado</Text>
+                </>
+              ) : (
+                <>
+                  <SaveOutline />
+                  <Text fontFamily="Poppins_400Regular">Guardar</Text>
+                </>
+              )}
             </HStack>
           </Pressable>
         </Skeleton>
@@ -134,7 +151,7 @@ export function PostComponent({ isLoaded, isScreen, post }) {
             w="2/4"
             _pressed={{ opacity: 20 }}
             onPress={() =>
-              navigation.navigate("Comments", {
+              navigation.navigate(searchResult ? "CommentsModal" : "Comments", {
                 post: post,
               })
             }

@@ -5,7 +5,7 @@ import { AntDesign } from "@expo/vector-icons";
 //navigation
 import { TabBarController } from "./TabBarController";
 //screens
-import { Post } from "../screens";
+import { Post, SearchResults, Comments } from "../screens";
 
 const Stack = createNativeStackNavigator();
 
@@ -41,6 +41,24 @@ export function NavigationController() {
           title: "Publicação",
         }}
       />
+      <Stack.Screen
+        name="SearchResults"
+        component={SearchResults}
+        options={({ navigation, route }) => ({
+          headerShown: true,
+          title: route.params.title,
+        })}
+      />
+      <Stack.Group screenOptions={{ presentation: "modal" }}>
+        <Stack.Screen
+          name="CommentsModal"
+          component={Comments}
+          options={{
+            headerShown: false,
+            contentStyle: { backgroundColor: "transparent" },
+          }}
+        />
+      </Stack.Group>
     </Stack.Navigator>
   );
 }

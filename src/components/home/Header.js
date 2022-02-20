@@ -1,5 +1,4 @@
 import { HStack, Image, Pressable } from "native-base";
-
 import { useNavigation } from "@react-navigation/native";
 
 import Settings from "./../../../assets/images/settings.svg";

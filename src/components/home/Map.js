@@ -6,7 +6,7 @@ import db from "../../../server/db.json";
 MapboxGL.setAccessToken(`${MAPBOX_TOKEN}`);
 
 export function Map() {
-  const posts = db.posts;
+  const { locations } = db;
 
   const navigation = useNavigation();
 
@@ -19,16 +19,14 @@ export function Map() {
       logoEnabled={true}
       logoPosition={{ bottom: 60, right: 10 }}
     >
-      {posts.map((post) => (
+      {locations.map((location) => (
         <MapboxGL.PointAnnotation
-          id={`${post.id}`}
-          key={post.id}
+          id={`${location.id}`}
+          key={location.id}
           onSelected={() =>
-            navigation.navigate("Post", {
-              content: post,
-            })
+            navigation.navigate("SearchResults", { title: location.name })
           }
-          coordinate={[post.location[1], post.location[0]]}
+          coordinate={[location.coordinates[1], location.coordinates[0]]}
         />
       ))}
 
