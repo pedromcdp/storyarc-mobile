@@ -36,14 +36,14 @@ export function Feed() {
         ListHeaderComponent={() => (
           <HighlightContent isLoaded={isLoaded}>
             <FlatList
-              data={data}
+              data={content}
               horizontal
               showsHorizontalScrollIndicator={false}
               initialNumToRender={3}
               renderItem={({ item, index }) => (
-                <HighlightPost index={index} isLoaded={isLoaded} />
+                <HighlightPost index={index} isLoaded={isLoaded} post={item} />
               )}
-              keyExtractor={(item, index) => index}
+              keyExtractor={(item) => item.id}
             />
           </HighlightContent>
         )}
@@ -57,71 +57,4 @@ export function Feed() {
       />
     </Box>
   );
-  // return (
-  //   <ScrollView
-  //     flex={1}
-  //     bg="#f6f6f6"
-  //     pt={4}
-  //     refreshControl={
-  //       <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-  //     }
-  //   >
-  //     <HighlightContent isLoaded={isLoaded}>
-  //       <FlatList
-  //         data={data}
-  //         horizontal
-  //         showsHorizontalScrollIndicator={false}
-  //         initialNumToRender={3}
-  //         renderItem={({ item, index }) => (
-  //           <HighlightPost index={index} isLoaded={isLoaded} />
-  //         )}
-  //         keyExtractor={(item, index) => index}
-  //       />
-  //     </HighlightContent>
-  //     <FlatList
-  //       data={content}
-  //       initialNumToRender={1}
-  //       renderItem={({ item }) => (
-  //         <PostComponent post={item} isLoaded={isLoaded} />
-  //       )}
-  //       keyExtractor={(item) => item.id}
-  //     />
-  //     <Box size="32" />
-  //   </ScrollView>
-  // );
 }
-
-// function fix() {
-//   return (
-//     <Box>
-//       <FlatList
-//         refreshControl={
-//           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-//         }
-//         ListHeaderComponent={() => {
-//           <HighlightContent isLoaded={isLoaded}>
-//             <FlatList
-//               data={data}
-//               horizontal
-//               showsHorizontalScrollIndicator={false}
-//               initialNumToRender={3}
-//               renderItem={({ item, index }) => (
-//                 <HighlightPost index={index} isLoaded={isLoaded} />
-//               )}
-//               keyExtractor={(item, index) => index}
-//             />
-//           </HighlightContent>;
-//         }}
-//         data={content}
-//         initialNumToRender={1}
-//         renderItem={({ item }) => (
-//           <PostComponent post={item} isLoaded={isLoaded} />
-//         )}
-//         keyExtractor={(item) => item.id}
-//         ListFooterComponent={CommentsModal}
-//       />
-//     </Box>
-//   );
-// }
-
-//CommentsModal

@@ -1,8 +1,13 @@
 //Packages Imports
 import { Box, Text, ZStack, VStack, Skeleton } from "native-base";
 import { Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+//db
+import db from "../../../server/db.json";
 
-export default function HighlightPost({ index, isLoaded }) {
+export default function HighlightPost({ index, isLoaded, post }) {
+  const navigation = useNavigation();
+  const user = db.users.find((user) => user.id === post.userId);
   return (
     <ZStack
       width={140}
@@ -22,7 +27,7 @@ export default function HighlightPost({ index, isLoaded }) {
       >
         <Image
           source={{
-            uri: "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
+            uri: post.photo,
           }}
           style={{
             width: "100%",
@@ -64,7 +69,7 @@ export default function HighlightPost({ index, isLoaded }) {
           rounded="full"
         >
           <Image
-            source={require("../../../assets/images/user_img.png")}
+            source={{ uri: user.avatar }}
             style={{
               width: 34,
               height: 34,
@@ -108,8 +113,13 @@ export default function HighlightPost({ index, isLoaded }) {
               color="white"
               fontSize="md"
               lineHeight="sm"
+              onPress={() =>
+                navigation.navigate("Post", {
+                  content: post,
+                })
+              }
             >
-              Escola Secundária José Estevão
+              {post.description}
             </Text>
           </Skeleton.Text>
         </Box>
