@@ -18,6 +18,7 @@ import CommentOutline from "./../../../assets/images/CommentOutline.svg";
 import db from "../../../server/db.json";
 //utils
 import { timeSince } from "../../utils/timeSince";
+import { SReveal } from "../shared/SReveal";
 
 export function PostComponent({ isLoaded, isScreen, post, searchResult }) {
   const navigation = useNavigation();
@@ -92,22 +93,7 @@ export function PostComponent({ isLoaded, isScreen, post, searchResult }) {
             {post.description}
           </Text>
         )}
-        <HStack width="100%" height="xs">
-          <Image
-            source={{ uri: post.photo }}
-            style={{
-              flex: 1,
-              resizeMode: "cover",
-              maxWidth: post.postType === "comparacao" ? "50%" : "100%",
-            }}
-          />
-          {post.postType === "comparacao" && (
-            <Image
-              source={{ uri: post.new_photo }}
-              style={{ flex: 1, resizeMode: "cover", maxWidth: "50%" }}
-            />
-          )}
-        </HStack>
+        <SReveal post={post} />
       </Skeleton>
       <Divider my={1} />
       <HStack alignItems="center" px={4}>

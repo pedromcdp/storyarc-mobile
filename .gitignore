@@ -125,4 +125,4 @@ dist/
 # @end expo-cli
 
 .env
-src/components/shared/Image.js
+
