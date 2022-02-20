@@ -15,7 +15,6 @@ const renderScene = SceneMap({
 
 export function Home({ navigation }) {
   const insets = useSafeAreaInsets();
-  // const showSearch = useSelector(useShowSearch);
   const layout = useWindowDimensions();
   const [index, setIndex] = useState(0);
   const [routes] = useState([
