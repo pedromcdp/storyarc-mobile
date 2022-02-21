@@ -112,24 +112,26 @@
           "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
           "postType": "comparacao",
           "title": "Ponte de Carcavelos",
-          "description": null,
+          "description": "Ponte de Carcavelos",
           "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
           "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
           "location": [40.6453974473121, -8.654480643946753],
+          "streetName": "Universidade de Aveiro",
           "contentDate": "1960",
-          "postDate": "2017-12-2"
+          "postDate": "2022-02-12T11:06:41.388Z"
         },
         {
           "id": 3,
           "userId": 2,
-          "postType": "comparacao",
+          "postType": "foto",
           "title": "Praça do comércio",
-          "description": null,
+          "description": "Praça do comércio",
           "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
           "new_photo": null,
           "location": [40.64168732868854, -8.653957347150298],
+          "streetName": "Universidade de Aveiro",
           "contentDate": "1960",
-          "postDate": "2017-12-2"
+          "postDate": "2022-02-15T12:06:41.388Z"
         }
       ]
     },
