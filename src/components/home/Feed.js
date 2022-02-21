@@ -10,7 +10,6 @@ import { PostComponent } from "./PostComponent";
 import db from "../../../server/db.json";
 
 export function Feed() {
-  const data = [...Array(10)];
   content = db.posts;
 
   const [refreshing, setRefreshing] = useState(false);
