@@ -20,11 +20,10 @@ import db from "../../../server/db.json";
 import { timeSince } from "../../utils/timeSince";
 import { SReveal } from "../shared/SReveal";
 
-export function PostComponent({ isLoaded, isScreen, post }) {
+export function PostComponent({ isLoaded, isScreen, post, saved }) {
   const navigation = useNavigation();
   const user = db.users.find((user) => user.id === post.userId);
-
-  const [isSaved, setIsSaved] = useState(false);
+  const [isSaved, setIsSaved] = useState(saved || false);
 
   function handleSave() {
     setIsSaved(!isSaved);
