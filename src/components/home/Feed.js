@@ -4,7 +4,7 @@ import { Box, FlatList } from "native-base";
 import { RefreshControl } from "react-native";
 //Components
 import HighlightContent from "./HighlightContent";
-import HighlightPost from "./HighlightPost";
+import { HighlightPost } from "./HighlightPost";
 import { PostComponent } from "./PostComponent";
 //db
 import db from "../../../server/db.json";

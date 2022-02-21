@@ -4,6 +4,7 @@ export { HeaderSearch } from "./home/HeaderSearch";
 export { Feed } from "./home/Feed";
 export { Map } from "./home/Map";
 export { PostComponent } from "./home/PostComponent";
+export { HighlightPost } from "./home/HighlightPost";
 //Shared Components
 export { AddButton } from "./shared/AddButton";
 export { Blur } from "./shared/Blur";

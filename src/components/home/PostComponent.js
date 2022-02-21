@@ -20,7 +20,7 @@ import db from "../../../server/db.json";
 import { timeSince } from "../../utils/timeSince";
 import { SReveal } from "../shared/SReveal";
 
-export function PostComponent({ isLoaded, isScreen, post, searchResult }) {
+export function PostComponent({ isLoaded, isScreen, post }) {
   const navigation = useNavigation();
   const user = db.users.find((user) => user.id === post.userId);
 
@@ -137,7 +137,7 @@ export function PostComponent({ isLoaded, isScreen, post, searchResult }) {
             w="2/4"
             _pressed={{ opacity: 20 }}
             onPress={() =>
-              navigation.navigate(searchResult ? "CommentsModal" : "Comments", {
+              navigation.navigate("CommentsModal", {
                 post: post,
               })
             }

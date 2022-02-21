@@ -5,7 +5,7 @@ import { useNavigation } from "@react-navigation/native";
 //db
 import db from "../../../server/db.json";
 
-export default function HighlightPost({ index, isLoaded, post }) {
+export function HighlightPost({ index, isLoaded, post }) {
   const navigation = useNavigation();
   const user = db.users.find((user) => user.id === post.userId);
   return (
