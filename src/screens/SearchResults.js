@@ -16,9 +16,7 @@ export function SearchResults({ navigation, route }) {
       <FlatList
         data={matchedPosts}
         initialNumToRender={3}
-        renderItem={({ item }) => (
-          <PostComponent post={item} isLoaded searchResult />
-        )}
+        renderItem={({ item }) => <PostComponent post={item} isLoaded />}
         ListEmptyComponent={() => <EmptyCommentList erro="Sem publicações" />}
         ListFooterComponent={() => <Box size="32" />}
         keyExtractor={(item) => item.id}
