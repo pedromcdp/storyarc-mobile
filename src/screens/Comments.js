@@ -13,7 +13,9 @@ import db from "../../server/db.json";
 
 export function Comments({ navigation, route }) {
   const { post } = route.params;
-  const comments = db.comments;
+  const comments = db.comments.filter(
+    (comments) => comments.postId === post.id
+  );
 
   return (
     <VStack flex={1} justifyContent={"flex-end"}>
