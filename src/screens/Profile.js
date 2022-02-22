@@ -12,9 +12,6 @@ import { ItemRow } from "../components";
 export function Profile() {
   const insets = useSafeAreaInsets();
   const user = useSelector(useUser);
-  //uid
-
-  console.log(user);
 
   function handleLogOut() {
     auth().signOut();
