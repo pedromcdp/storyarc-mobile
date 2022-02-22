@@ -10,6 +10,9 @@ import {
 } from "native-base";
 import { Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+//redux
+import { useSelector } from "react-redux";
+import { useUser } from "../../features/UserSlice";
 //svg's
 import SaveFilled from "./../../../assets/images/saveFilled.svg";
 import SaveOutline from "./../../../assets/images/saveOutline.svg";
@@ -22,11 +25,14 @@ import { SReveal } from "../shared/SReveal";
 
 export function PostComponent({ isLoaded, isScreen, post, saved }) {
   const navigation = useNavigation();
+  const currentUser = useSelector(useUser);
   const user = db.users.find((user) => user.id === post.userId);
   const [isSaved, setIsSaved] = useState(saved || false);
 
   function handleSave() {
-    setIsSaved(!isSaved);
+    if (currentUser) {
+      setIsSaved(!isSaved);
+    }
   }
   return (
     <VStack bg="white" shadow="1" mt={isScreen ? 0 : 4} pb={2} space={2}>
