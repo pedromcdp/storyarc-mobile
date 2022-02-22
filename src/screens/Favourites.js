@@ -9,13 +9,13 @@ export function Favourites() {
   const userSavedPosts = db.savedPosts.find(
     (savedPosts) => savedPosts.userId === currentUser.uid
   );
-  console.log(userSavedPosts.posts);
+
   return (
     <VStack flex={1} bg="white">
       <FlatList
-        data={userSavedPosts.posts}
+        data={userSavedPosts?.posts}
         initialNumToRender={6}
-        ListEmptyComponent={() => <EmptyCommentList erro="Sem publicações" />}
+        ListEmptyComponent={() => <EmptyCommentList erro="Sem favouritos" />}
         renderItem={({ item }) => <PostComponent post={item} isLoaded saved />}
         keyExtractor={(item) => item.id}
         ListFooterComponent={() => <Box size="32" />}

@@ -1,5 +1,6 @@
 //Packages Imports
-import { Box, Button, Image, Text, VStack, ZStack, Avatar } from "native-base";
+import { Image } from "react-native";
+import { Box, Button, Text, VStack, ZStack, Avatar } from "native-base";
 import auth from "@react-native-firebase/auth";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 //Redux
@@ -13,6 +14,8 @@ export function Profile() {
   const user = useSelector(useUser);
   //uid
 
+  console.log(user);
+
   function handleLogOut() {
     auth().signOut();
   }
@@ -22,10 +25,8 @@ export function Profile() {
       <ZStack width="full" height="46%">
         <Image
           source={require("../../assets/images/profilebg.png")}
-          reziseMode="cover"
-          width="full"
-          height="full"
-          alt="profileBg"
+          style={{ height: "100%", width: "100%" }}
+          resizeMode="center"
         />
         <Box
           width="full"
@@ -53,15 +54,15 @@ export function Profile() {
             alignItems="center"
             justifyContent="center"
           >
-            <Avatar
-              size="xl"
-              source={require("../../assets/images/user_img.png")}
+            <Image
+              source={{ uri: user.photoURL }}
+              style={{ height: 90, width: 90, borderRadius: 100 }}
             />
           </Box>
-          <Text fontFamily="Poppins_500Medium" fontSize={18}>
+          <Text mb={16} fontFamily="Poppins_500Medium" fontSize={18}>
             {user.displayName}
           </Text>
-          <Button
+          {/* <Button
             mb={10}
             variant="unstyled"
             _pressed={{ opacity: 80 }}
@@ -72,7 +73,7 @@ export function Profile() {
             }}
           >
             Editar Conta
-          </Button>
+          </Button> */}
         </VStack>
       </ZStack>
       <VStack mx={4} justifyContent="flex-end" bottom="0" flex={1} pb={20}>
