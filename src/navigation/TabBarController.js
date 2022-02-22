@@ -38,6 +38,7 @@ export function TabBarController() {
       <TabController.Navigator
         screenOptions={{
           detachInactiveScreens: true,
+          tabBarHideOnKeyboard: true,
           tabBarShowLabel: settings.showTabBarLabel,
           tabBarBackground: () => <TabBar />,
           tabBarStyle: {
