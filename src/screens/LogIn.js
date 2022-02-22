@@ -1,5 +1,8 @@
-// import { useState } from "react";
+import { useState } from "react";
 import {
+  Box,
+  Divider,
+  Input,
   Center,
   Text,
   VStack,
@@ -8,30 +11,30 @@ import {
   Button,
   HStack,
 } from "native-base";
-import { Keyboard } from "react-native";
+import { Keyboard, TouchableOpacity } from "react-native";
 import auth from "@react-native-firebase/auth";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
 export function LogIn() {
-  // const [email, setEmail] = useState(null);
-  // const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState(null);
+  const [password, setPassword] = useState(null);
 
   GoogleSignin.configure({
     webClientId:
       "389867033099-e5hk7n5fmsg8mg0qff6s21gdmfpqe67d.apps.googleusercontent.com",
   });
 
-  // //Deal with this later
-  // function handleLogIn() {
-  //   auth()
-  //     .signInWithEmailAndPassword(email, password)
-  //     .then(() => {
-  //       console.log("User logged in!");
-  //     })
-  //     .catch((error) => {
-  //       console.error(error);
-  //     });
-  // }
+  //Deal with this later
+  function handleLogIn() {
+    auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(() => {
+        console.log("User logged in!");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   async function onGoogleButtonPress() {
     // Get the users ID token
@@ -62,7 +65,7 @@ export function LogIn() {
               mb={12}
             />
           </Center>
-          {/* <Box shadow={2} backgroundColor={"white"} borderRadius={"xl"} mb={6}>
+          <Box shadow={2} backgroundColor={"white"} borderRadius={"xl"} mb={6}>
             <Input
               placeholder="Email"
               my={2}
@@ -96,20 +99,28 @@ export function LogIn() {
             backgroundColor="#37B777"
             borderRadius={"lg"}
             height={12}
-            mb={4}
             _pressed={{ opacity: 80 }}
+            mb={4}
           >
             <Text fontFamily="Poppins_400Regular" color="white" fontSize={16}>
               Iniciar Sessão
             </Text>
-          </Button> */}
+          </Button>
+          <HStack justifyContent={"center"} space={1} mb="4">
+            <Text fontFamily={"Poppins_400Regular"}>
+              Ainda não tem uma conta?
+            </Text>
+            <TouchableOpacity>
+              <Text color="#37B777">Criar Conta</Text>
+            </TouchableOpacity>
+          </HStack>
+          <Divider />
           <Button
+            mt={4}
             onPress={onGoogleButtonPress}
             variant="unstyled"
             backgroundColor="white"
             shadow="2"
-            // borderColor="#37B777"
-            // borderWidth="1"
             borderRadius={"lg"}
             height={"12"}
             mb={4}
@@ -127,15 +138,6 @@ export function LogIn() {
               </Text>
             </HStack>
           </Button>
-
-          {/* <HStack justifyContent={"center"} space={1}>
-            <Text fontFamily={"Poppins_400Regular"}>
-              Ainda não tem uma conta?
-            </Text>
-            <TouchableOpacity>
-              <Text color="#37B777">Criar Conta</Text>
-            </TouchableOpacity>
-          </HStack> */}
         </VStack>
       </Center>
     </KeyboardAvoidingView>
