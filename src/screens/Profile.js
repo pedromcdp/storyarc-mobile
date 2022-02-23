@@ -23,7 +23,7 @@ export function Profile() {
         <Image
           source={require("../../assets/images/profilebg.png")}
           style={{ height: "100%", width: "100%" }}
-          resizeMode="center"
+          resizeMode="cover"
         />
         <Box
           width="full"
