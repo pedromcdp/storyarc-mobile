@@ -52,7 +52,11 @@ export function Profile() {
             justifyContent="center"
           >
             <Image
-              source={{ uri: user.photoURL }}
+              source={
+                user.photoURL
+                  ? { uri: user.photoURL }
+                  : require("../../assets/images/user_img.png")
+              }
               style={{ height: 90, width: 90, borderRadius: 100 }}
             />
           </Box>

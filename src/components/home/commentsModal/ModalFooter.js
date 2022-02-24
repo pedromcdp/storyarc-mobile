@@ -5,6 +5,7 @@ import { HStack, Divider, Input, Pressable } from "native-base";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MotiView } from "moti";
 import auth from "@react-native-firebase/auth";
+import uuid from "react-native-uuid";
 //Custom Hooks
 import { useKeyboard } from "../../../hooks/useKeyboard";
 // Svg
@@ -12,7 +13,7 @@ import SendOutline from "../../../../assets/images/sendOutline.svg";
 //db
 import db from "../../../../server/db.json";
 
-export function ModalFooter() {
+export function ModalFooter({ id }) {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const [comment, setComment] = useState("");
   const insets = useSafeAreaInsets();
@@ -48,9 +49,9 @@ export function ModalFooter() {
       );
     } else {
       submitComment = {
-        id: 4,
-        postId: 1,
-        userId: 2,
+        id: uuid.v4(),
+        postId: id,
+        userId: currentUser.uid,
         body: comment,
       };
       db.comments.push(submitComment);

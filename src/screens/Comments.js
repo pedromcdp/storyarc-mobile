@@ -30,7 +30,7 @@ export function Comments({ navigation, route }) {
           keyExtractor={(item) => item.id}
           ListFooterComponent={() => <Box size="10" />}
         />
-        <ModalFooter />
+        <ModalFooter id={post.id} />
       </VStack>
     </VStack>
   );

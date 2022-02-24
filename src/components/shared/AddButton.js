@@ -1,11 +1,27 @@
 //Packages Imports
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, Alert } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { isIphoneX } from "react-native-iphone-x-helper";
+import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import { useUser } from "../../features/UserSlice";
 
 export function AddButton() {
   const isiPhoneXOrAbove = isIphoneX();
+  const user = useSelector(useUser);
+  const navigation = useNavigation();
 
+  function handlePress() {
+    if (user) {
+      navigation.navigate("AddContent");
+    } else {
+      return Alert.alert(
+        "Erro",
+        "É necessário ter sessão iniciada para publicar conteúdo",
+        [{ text: "Fechar" }]
+      );
+    }
+  }
   return (
     <TouchableOpacity
       style={{
@@ -29,6 +45,7 @@ export function AddButton() {
         shadowRadius: 4,
         elevation: 1,
       }}
+      onPress={handlePress}
     >
       <AntDesign
         name="plus"

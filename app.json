@@ -4,10 +4,7 @@
     "slug": "storyarc",
     "version": "1.0.0",
     "orientation": "portrait",
-    "plataforms": [
-      "ios",
-      "android"
-    ],
+    "plataforms": ["ios", "android"],
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
@@ -16,7 +13,13 @@
     },
     "plugins": [
       "@react-native-mapbox-gl/maps",
-      "@react-native-firebase/app"
+      "@react-native-firebase/app",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
     ],
     "ios": {
       "googleServicesFile": "./GoogleService-Info.plist",

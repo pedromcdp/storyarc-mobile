@@ -5,7 +5,13 @@ import { AntDesign } from "@expo/vector-icons";
 //navigation
 import { TabBarController } from "./TabBarController";
 //screens
-import { Post, SearchResults, Comments } from "../screens";
+import {
+  Post,
+  SearchResults,
+  Comments,
+  CriarConta,
+  AddContent,
+} from "../screens";
 
 const Stack = createNativeStackNavigator();
 
@@ -49,6 +55,7 @@ export function NavigationController() {
           title: route.params.title,
         })}
       />
+
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen
           name="CommentsModal"
@@ -57,6 +64,15 @@ export function NavigationController() {
             headerShown: false,
             contentStyle: { backgroundColor: "transparent" },
           }}
+        />
+        <Stack.Screen name="CriarConta" component={CriarConta} />
+        <Stack.Screen
+          name="AddContent"
+          component={AddContent}
+          options={({ navigation, route }) => ({
+            headerShown: Platform.OS === "ios" ? false : true,
+            title: "Adicionar Publicação",
+          })}
         />
       </Stack.Group>
     </Stack.Navigator>

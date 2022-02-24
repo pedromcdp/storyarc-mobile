@@ -15,9 +15,9 @@ import { Keyboard, TouchableOpacity } from "react-native";
 import auth from "@react-native-firebase/auth";
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
 
-export function LogIn() {
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+export function LogIn({ navigation }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   GoogleSignin.configure({
     webClientId:
@@ -37,13 +37,8 @@ export function LogIn() {
   }
 
   async function onGoogleButtonPress() {
-    // Get the users ID token
     const { idToken } = await GoogleSignin.signIn();
-
-    // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-
-    // Sign-in the user with the credential
     return auth().signInWithCredential(googleCredential);
   }
 
@@ -110,7 +105,7 @@ export function LogIn() {
             <Text fontFamily={"Poppins_400Regular"}>
               Ainda não tem uma conta?
             </Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate("CriarConta")}>
               <Text color="#37B777">Criar Conta</Text>
             </TouchableOpacity>
           </HStack>
