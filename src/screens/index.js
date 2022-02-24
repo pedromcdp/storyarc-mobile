@@ -18,3 +18,4 @@ export { Comments } from "./Comments";
 export { Search } from "./Search";
 //Global
 export { AddContent } from "./AddContent";
+export { Recreate } from "./Recreate";

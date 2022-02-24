@@ -10,6 +10,7 @@ import {
 } from "native-base";
 import { Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { MaterialIcons } from "@expo/vector-icons";
 //redux
 import { useSelector } from "react-redux";
 import { useUser } from "../../features/UserSlice";
@@ -36,17 +37,7 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
   }
   return (
     <VStack bg="white" shadow="1" mt={isScreen ? 0 : 4} pb={2} space={2}>
-      <HStack
-        px={4}
-        pt={2}
-        space={2}
-        alignItems="center"
-        onStartShouldSetResponder={() =>
-          navigation.navigate("Post", {
-            content: post,
-          })
-        }
-      >
+      <HStack px={4} pt={2} space={2} w="full" alignItems="center">
         <Skeleton
           size="10"
           rounded="full"
@@ -67,11 +58,18 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
             }}
           />
         </Skeleton>
-        <VStack w="full">
+        <VStack
+          w="79%"
+          onStartShouldSetResponder={() =>
+            navigation.navigate("Post", {
+              content: post,
+            })
+          }
+        >
           <Skeleton.Text
             isLoaded={isLoaded}
             lines={2}
-            w="2/4"
+            w="3/4"
             startColor="coolGray.100"
             endColor="coolGray.300"
           >
@@ -84,7 +82,20 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
             </Text>
           </Skeleton.Text>
         </VStack>
+        {post.postType === "foto" && (
+          <Pressable
+            _pressed={{ opacity: 20 }}
+            onPress={() =>
+              navigation.navigate("Recreate", {
+                photo: post.photo,
+              })
+            }
+          >
+            <MaterialIcons name="flip" size={24} color="black" />
+          </Pressable>
+        )}
       </HStack>
+
       <Skeleton
         isLoaded={isLoaded}
         w="94%"
@@ -116,16 +127,20 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
             _pressed={{ opacity: 20 }}
             onPress={handleSave}
           >
-            <HStack justifyContent="center" alignItems="center" space="2">
+            <HStack justifyContent="center" alignItems="center">
               {isSaved ? (
                 <>
                   <SaveFilled />
-                  <Text fontFamily="Poppins_400Regular">Guardado</Text>
+                  <Text ml="1" fontFamily="Poppins_400Regular">
+                    Guardado
+                  </Text>
                 </>
               ) : (
                 <>
                   <SaveOutline />
-                  <Text fontFamily="Poppins_400Regular">Guardar</Text>
+                  <Text ml="1" fontFamily="Poppins_400Regular">
+                    Guardar
+                  </Text>
                 </>
               )}
             </HStack>

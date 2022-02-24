@@ -11,6 +11,7 @@ import {
   Comments,
   CriarConta,
   AddContent,
+  Recreate,
 } from "../screens";
 
 const Stack = createNativeStackNavigator();
@@ -55,7 +56,7 @@ export function NavigationController() {
           title: route.params.title,
         })}
       />
-
+      <Stack.Screen name="Recreate" component={Recreate} />
       <Stack.Group screenOptions={{ presentation: "modal" }}>
         <Stack.Screen
           name="CommentsModal"
