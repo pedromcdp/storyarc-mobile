@@ -88,6 +88,8 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
             onPress={() =>
               navigation.navigate("Recreate", {
                 photo: post.photo,
+                rua: post.streetName,
+                contentDate: post.contentDate,
               })
             }
           >
