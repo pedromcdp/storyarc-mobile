@@ -1,6 +1,6 @@
 //Packages Imports
 import { Image } from "react-native";
-import { Box, Button, Text, VStack, ZStack, Avatar } from "native-base";
+import { Box, Button, Text, VStack, ZStack } from "native-base";
 import auth from "@react-native-firebase/auth";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 //Redux
@@ -53,15 +53,15 @@ export function Profile() {
           >
             <Image
               source={
-                user.photoURL
-                  ? { uri: user.photoURL }
+                user.avatar
+                  ? { uri: user.avatar }
                   : require("../../assets/images/user_img.png")
               }
               style={{ height: 90, width: 90, borderRadius: 100 }}
             />
           </Box>
           <Text mb={16} fontFamily="Poppins_500Medium" fontSize={18}>
-            {user.displayName}
+            {user.name}
           </Text>
           {/* <Button
             mb={10}

@@ -25,7 +25,18 @@ export function TabBarController() {
   const dispatch = useDispatch();
 
   function onAuthStateChanged(user) {
-    dispatch(setUser(user));
+    if (user) {
+      dispatch(
+        setUser({
+          uid: user.uid,
+          avatar: user.photoURL,
+          name: user.displayName,
+          email: user.email,
+        })
+      );
+    } else {
+      dispatch(setUser(user));
+    }
   }
 
   useEffect(() => {

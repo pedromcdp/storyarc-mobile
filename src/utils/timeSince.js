@@ -33,7 +33,7 @@ export function timeSince(time) {
     list_choice = 1;
 
   if (seconds == 0) {
-    return "Agora mesmo";
+    return "agora mesmo";
   }
   if (seconds < 0) {
     seconds = Math.abs(seconds);

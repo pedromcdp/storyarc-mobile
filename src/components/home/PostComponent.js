@@ -10,7 +10,7 @@ import {
 } from "native-base";
 import { Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, Ionicons } from "@expo/vector-icons";
 //redux
 import { useSelector } from "react-redux";
 import { useUser } from "../../features/UserSlice";
@@ -37,52 +37,66 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
   }
   return (
     <VStack bg="white" shadow="1" mt={isScreen ? 0 : 4} pb={2} space={2}>
-      <HStack px={4} pt={2} space={2} w="full" alignItems="center">
-        <Skeleton
-          size="10"
-          rounded="full"
-          isLoaded={isLoaded}
-          startColor="coolGray.100"
-          endColor="coolGray.300"
-          borderWidth="1"
-          borderColor="#37B780"
-        >
-          <Image
-            source={{ uri: user.avatar }}
-            style={{
-              width: 35,
-              height: 35,
-              borderWidth: 1,
-              borderColor: "#37B780",
-              borderRadius: 100,
-            }}
-          />
-        </Skeleton>
-        <VStack
-          w="79%"
-          onStartShouldSetResponder={() =>
-            navigation.navigate("Post", {
-              content: post,
-            })
-          }
-        >
-          <Skeleton.Text
+      <HStack
+        px={4}
+        pt={2}
+        w="full"
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <HStack space={"2"}>
+          <Skeleton
+            size="10"
+            rounded="full"
             isLoaded={isLoaded}
-            lines={2}
-            w="3/4"
             startColor="coolGray.100"
             endColor="coolGray.300"
+            borderWidth="1"
+            borderColor="#37B780"
           >
-            <Text fontFamily="Poppins_500Medium">{user.name}</Text>
-            <Text fontFamily="Poppins_400Regular" sub>
-              Publicado{" "}
-              {timeSince(post.postDate) === "ontem"
-                ? timeSince(post.postDate)
-                : "há " + timeSince(post.postDate)}
-            </Text>
-          </Skeleton.Text>
-        </VStack>
-        {post.postType === "foto" && (
+            <Image
+              source={{ uri: user.avatar }}
+              style={{
+                width: 35,
+                height: 35,
+                borderWidth: 1,
+                borderColor: "#37B780",
+                borderRadius: 100,
+              }}
+            />
+          </Skeleton>
+          <VStack
+            onStartShouldSetResponder={() =>
+              navigation.navigate("Post", {
+                content: post,
+              })
+            }
+          >
+            <Skeleton.Text
+              isLoaded={isLoaded}
+              lines={2}
+              w="3/4"
+              startColor="coolGray.100"
+              endColor="coolGray.300"
+            >
+              <Text fontFamily="Poppins_500Medium">{user.name}</Text>
+              <Text fontFamily="Poppins_400Regular" sub>
+                Publicado{" "}
+                {timeSince(post.postDate) === "ontem"
+                  ? timeSince(post.postDate)
+                  : timeSince(post.postDate) === "semana passada"
+                  ? "na " + timeSince(post.postDate)
+                  : "há " + timeSince(post.postDate)}
+              </Text>
+            </Skeleton.Text>
+          </VStack>
+        </HStack>
+
+        {post.postType === "comparacao" ? (
+          <Pressable>
+            <MaterialIcons name="flip" size={24} color="black" />
+          </Pressable>
+        ) : (
           <Pressable
             _pressed={{ opacity: 20 }}
             onPress={() =>
@@ -93,11 +107,10 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
               })
             }
           >
-            <MaterialIcons name="flip" size={24} color="black" />
+            <Ionicons name="camera-reverse-outline" size={27} color="black" />
           </Pressable>
         )}
       </HStack>
-
       <Skeleton
         isLoaded={isLoaded}
         w="94%"

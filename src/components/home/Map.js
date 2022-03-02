@@ -7,7 +7,6 @@ MapboxGL.setAccessToken(`${MAPBOX_TOKEN}`);
 
 export function Map() {
   const { locations } = db;
-
   const navigation = useNavigation();
 
   return (

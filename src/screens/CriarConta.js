@@ -51,7 +51,6 @@ export function CriarConta({ navigation }) {
       .createUserWithEmailAndPassword(email, password)
       .then((acc) => {
         acc.user.updateProfile({ displayName: nome, photoURL: image });
-        console.log(user);
       })
       .catch((error) => {
         console.error(error);

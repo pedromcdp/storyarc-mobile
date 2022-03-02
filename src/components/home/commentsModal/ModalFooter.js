@@ -4,10 +4,12 @@ import { Keyboard, Alert, Image } from "react-native";
 import { HStack, Divider, Input, Pressable } from "native-base";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { MotiView } from "moti";
-import auth from "@react-native-firebase/auth";
 import uuid from "react-native-uuid";
 //Custom Hooks
 import { useKeyboard } from "../../../hooks/useKeyboard";
+//Redux
+import { useSelector } from "react-redux";
+import { useUser } from "../../../features/UserSlice";
 // Svg
 import SendOutline from "../../../../assets/images/sendOutline.svg";
 //db
@@ -17,7 +19,7 @@ export function ModalFooter({ id }) {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const [comment, setComment] = useState("");
   const insets = useSafeAreaInsets();
-  const currentUser = auth().currentUser;
+  const currentUser = useSelector(useUser);
   const keyboardHeight = useKeyboard();
 
   useEffect(() => {
@@ -87,7 +89,7 @@ export function ModalFooter({ id }) {
             currentUser === null
               ? require("../../../../assets/images/user_img.png")
               : {
-                  uri: currentUser.photoURL,
+                  uri: currentUser.avatar,
                 }
           }
         />
