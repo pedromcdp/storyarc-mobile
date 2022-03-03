@@ -1,26 +1,40 @@
-# SVG Example
 
-Import SVG files directly as React components.
+# StoryArc
 
-## How to use
+StoryArc é uma plataforma de arquivo de conteúdos que pressupõe a partilha e consulta de informações relativas a espaços e à sua evolução ao longo dos anos, de modo a preservar a memória patrimonial.
 
-### Running the app
 
-- Run `yarn` or `npm install`
-- Run [`expo start`](https://docs.expo.dev/versions/latest/workflow/expo-cli/), try it out.
+## Features
 
-### Setup
+- Revive anos e anos da história da tua cidade
+- Recriação de fotos
+- Explora a história baseado no local onde te encontras
+- Android/iOS e Web
 
-The component `Image` from `react-native` doesn't support loading SVG images like the `img` component from `react-dom` does. Because of this, the next easiest way to use SVGs is to automatically transform them into agnostic React components via the bundler.
 
-This example demonstrates how to configure both Metro and Webpack to support automatically transforming SVGs.
+## Demo
 
-- In `metro.config.js` we swap the svg extension from being an asset to being a source code file. Then we add a custom transformer.
-- In `webpack.config.js` we append a new loader rule which transforms the svg files.
-- Notice that our `babel.config.js` remains unchanged, using `babel-preset-expo` to transpile files.
+---todo
 
-## 📝 Notes
+## Color Reference
 
-- [react-native-svg](https://github.com/react-native-svg/react-native-svg)
-- [@svgr/webpack](https://www.npmjs.com/package/@svgr/webpack)
-- [react-native-svg-transformer](https://github.com/kristerkari/react-native-svg-transformer) (metro only)
+| Color             | Hex                                                                |
+| ----------------- | ------------------------------------------------------------------ |
+| Azul | ![#133960](https://via.placeholder.com/10/133960?text=+) #133960 |
+| Verde | ![#37B777](https://via.placeholder.com/10/37B777?text=+) #37B777 |
+| Branco | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
+| Preto | ![#000000](https://via.placeholder.com/10/000?text=+) #000000 |
+
+
+## Authors
+
+- [David Silva](https://github.com/jarbas77)
+- [João Teixeira](https://github.com/teixeiraj25)
+- [Mariana Rodrigo](https://github.com/MarianaRodrigo)
+- [Pedro Miguel Pereira](https://www.github.com/pmcdp)
+
+
+## Support
+
+mctwstoryarc@gmail.com
+

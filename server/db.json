@@ -1,0 +1,461 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "postType": "foto",
+      "title": "Escola Secundária José Estevão",
+      "description": "A Escola Secundária José Estevão na década de 60",
+      "photo": "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
+      "altimg": "Escola Secundária José Estevão",
+      "new_photo": null,
+      "streetName": "Escola Secundária José Estevão",
+      "location": [40.63831645, -8.647869497033895],
+      "contentDate": "1960",
+      "createdAt": "2022-02-18T19:36:41.388Z"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "postType": "comparacao",
+      "title": "Ponte dos Carcavelos",
+      "description": null,
+      "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
+      "altimg": "Ponte dos Carcavelos",
+      "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
+      "streetName": "Ponte dos Carcavelos",
+      "location": [40.6453062, -8.6545539],
+      "contentDate": "1960",
+      "createdAt": "2022-02-17T19:36:41.388Z"
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "postType": "foto",
+      "title": "Praça do comércio",
+      "description": null,
+      "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
+      "altimg": "Praça do comércio",
+      "new_photo": null,
+      "streetName": "Praça do comércio",
+      "location": [40.6412445, -8.6545913],
+      "contentDate": "1960",
+      "createdAt": "2022-02-18T19:36:41.388Z"
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "postType": "foto",
+      "title": "Teatro Aveirense",
+      "description": null,
+      "photo": "https://static.globalnoticias.pt/jn/image.jpg?brand=JN&type=generate&guid=30c03d9a-2e46-4891-9768-04e5bc916c76&w=744&h=495&t=20210902122154",
+      "altimg": "Teatro Aveirense",
+      "new_photo": null,
+      "location": [40.640864419578264, -8.654164401922849],
+      "streetName": "Teatro Aveirense",
+      "contentDate": "2005",
+      "createdAt": "2022-02-17T19:36:41.388Z"
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "postType": "foto",
+      "title": "Universidade de Aveiro",
+      "description": null,
+      "photo": "https://api-assets.ua.pt/v1/image/resizer?imageUrl=https://www.ua.pt/contents%2Fimgs%2Fabout%2Fhistoria_ua_1980_5.jpg&width=1200",
+      "altimg": "Universidade de Aveiro",
+      "new_photo": null,
+      "location": [40.6412445, -8.6545913],
+      "streetName": "Universidade de Aveiro",
+      "contentDate": "2005",
+      "createdAt": "2022-02-15T19:36:41.388Z"
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "postType": "foto",
+      "title": "Sala do Despacho, Sacristia e Arrecadações. ",
+      "description": "Sala do Despacho, Sacristia e arrecadações",
+      "photo": "http://ww3.aeje.pt/avcultur/AvCultur/ArkivDtA/Vol03/Imagens/Vol03p054.jpg",
+      "altimg": "Escola Secundária José Estevão",
+      "new_photo": null,
+      "streetName": "Escola Secundária José Estevão",
+      "location": [40.63831645, -8.647869497033895],
+      "contentDate": "1920",
+      "createdAt": "2022-02-18T19:36:41.388Z"
+    },
+    {
+      "id": 7,
+      "userId": 7,
+      "postType": "foto",
+      "title": "Edifício principal do Liceu de José Estevão ",
+      "description": "A Escola Secundária José Estevão no ano de 1927",
+      "photo": "http://ww3.aeje.pt/avcultur/Secjeste/Arkidigi/Licaveiro/Imagens/056.jpg",
+      "altimg": "Escola Secundária José Estevão",
+      "new_photo": null,
+      "streetName": "Escola Secundária José Estevão",
+      "location": [40.63831645, -8.647869497033895],
+      "contentDate": "Setembro - 1927",
+      "createdAt": "2022-01-18T19:36:41.388Z"
+    },
+    {
+      "id": 8,
+      "userId": 5,
+      "postType": "foto",
+      "title": "Universidade de Aveiro na década de 80",
+      "description": null,
+      "photo": "https://api-assets.ua.pt/v1/image/resizer?imageUrl=https://www.ua.pt/contents%2Fimgs%2Fabout%2Fhistoria_ua_1980.jpg&width=768",
+      "altimg": "Universidade de Aveiro na década de 80",
+      "new_photo": null,
+      "location": [40.6412445, -8.6545913],
+      "streetName": "Universidade de Aveiro",
+      "contentDate": "1980",
+      "createdAt": "2022-02-13T19:36:41.388Z"
+    },
+    {
+      "id": 9,
+      "userId": 5,
+      "postType": "foto",
+      "title": "Universidade de Aveiro na década de 80",
+      "description": null,
+      "photo": "https://api-assets.ua.pt/v1/image/resizer?imageUrl=https://www.ua.pt/contents%2Fimgs%2Fabout%2Fhistoria_ua_1980_2.jpg&width=768",
+      "altimg": "Universidade de Aveiro na década de 80",
+      "new_photo": null,
+      "location": [40.6412445, -8.6545913],
+      "streetName": "Universidade de Aveiro",
+      "contentDate": "1980",
+      "createdAt": "2022-02-13T19:36:41.388Z"
+    },
+    {
+      "id": 10,
+      "userId": 5,
+      "postType": "foto",
+      "title": "Universidade de Aveiro na década de 90",
+      "description": null,
+      "photo": "https://api-assets.ua.pt/v1/image/resizer?imageUrl=https://www.ua.pt/contents%2Fimgs%2Fabout%2Fhistoria_ua_1990_3.jpg&width=768",
+      "altimg": "Universidade de Aveiro na década de 90",
+      "new_photo": null,
+      "location": [40.6412445, -8.6545913],
+      "streetName": "Universidade de Aveiro",
+      "contentDate": "1990",
+      "createdAt": "2022-02-12T19:36:41.388Z"
+    },
+    {
+      "id": 11,
+      "userId": 5,
+      "postType": "foto",
+      "title": "Universidade de Aveiro na década de 90",
+      "description": null,
+      "photo": "https://api-assets.ua.pt/v1/image/resizer?imageUrl=https://www.ua.pt/contents%2Fimgs%2Fabout%2Fhistoria_ua_1990_4.jpg&width=768",
+      "altimg": "Universidade de Aveiro na década de 90",
+      "new_photo": null,
+      "location": [40.6412445, -8.6545913],
+      "streetName": "Universidade de Aveiro",
+      "contentDate": "1990",
+      "createdAt": "2022-02-12T19:36:41.388Z"
+    },
+    {
+      "id": 12,
+      "userId": 8,
+      "postType": "foto",
+      "title": "Teatro Aveirense Antigamente",
+      "description": null,
+      "photo": "https://www.zarllor.com/wp-content/uploads/2020/03/90965756_679565672806062_7312032674595969853_n.jpg",
+      "altimg": "Teatro Aveirense Antigamente",
+      "new_photo": null,
+      "location": [40.640864419578264, -8.654164401922849],
+      "streetName": "Teatro Aveirense",
+      "contentDate": "1950",
+      "createdAt": "2022-02-17T19:36:41.388Z"
+    },
+    {
+      "id": 13,
+      "userId": 9,
+      "postType": "foto",
+      "title": "Teatro Aveirense Antigamente",
+      "description": null,
+      "photo": "https://www.teatroaveirense.pt/imagens/galeria/historia_5f36b733ae0ab.png",
+      "altimg": "Teatro Aveirense Antigamente",
+      "new_photo": null,
+      "location": [40.640864419578264, -8.654164401922849],
+      "streetName": "Teatro Aveirense",
+      "contentDate": "1950",
+      "createdAt": "2022-02-17T19:36:41.388Z"
+    },
+    {
+      "userId": "vlBJfbmG6iNl86pQJhkNldJG0A52",
+      "postType": "foto",
+      "title": "Farol da Barra",
+      "description": "O Forte da Barra",
+      "photo": "https://pbs.twimg.com/media/FMT1UUNWYAYPWj7?format=jpg&name=900x900",
+      "altimg": "Farol Barra",
+      "new_photo": null,
+      "streetName": "Praia da Barra",
+      "location": [40.642826230729845, -8.747531175613405],
+      "contentDate": "1920",
+      "createdAt": "2022-02-26T19:36:41.388Z",
+      "id": 14
+    },
+    {
+      "userId": "BH36JfGgYEPn4Ij1WzVCynePsbz2",
+      "postType": "foto",
+      "title": "Canal Central em Festa",
+      "description": "Festa no Canal Central",
+      "photo": "https://pbs.twimg.com/media/FMjSFjuWQAEFxI3?format=jpg&name=medium",
+      "altimg": "Canal Central",
+      "new_photo": null,
+      "streetName": "Cais de Embarque de Moliceiros",
+      "location": [40.641279446308594, -8.655670881271364],
+      "contentDate": "1930",
+      "createdAt": "2022-02-26T19:36:41.388Z",
+      "id": 15
+    },
+    {
+      "id": 16,
+      "userId": 5,
+      "postType": "comparacao",
+      "title": "UA nos anos 2000 vs UA atualmente 😍 Consegue ver as diferenças?",
+      "description": "UA nos anos 2000 vs UA atualmente 😍 Consegue ver as diferenças?",
+      "photo": "https://media-exp1.licdn.com/dms/image/C4D22AQEkygNKGOhZSA/feedshare-shrink_1280/0/1644670835599?e=1648080000&v=beta&t=J9ekvchQycb0pLQvzrFITJGm5QuNzOLyp8WPd83G2LM",
+      "new_photo": "https://media-exp1.licdn.com/dms/image/C4D22AQGZWzoevj184Q/feedshare-shrink_1280/0/1644670838439?e=1648080000&v=beta&t=A87zpGBeDJmS_A4j79kkKeotvFHek4IB3d5FrBxqEx0",
+      "location": [40.6376416868948, -8.648330328603409],
+      "streetName": "Universidade de Aveiro",
+      "contentDate": "1960",
+      "postDate": "2022-02-16T19:36:41.388Z"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Rui Jorge",
+      "password": "123",
+      "email": "ruijorge@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/men/29.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Joana Madalena",
+      "password": "123",
+      "email": "joanamadalena@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/women/3.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Paula Cardoso",
+      "password": "123",
+      "email": "paulacardoso@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/women/79.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Carlos Maior",
+      "password": "123",
+      "email": "carlos maior@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/men/8.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Universidade de Aveiro",
+      "password": "123",
+      "email": "ua@ua.com",
+      "avatar": "https://eduportugal.eu/wp-content/uploads/2020/07/Logo_Institucional_Universidade-de-Aveiro--263x263.png"
+    },
+    {
+      "id": 6,
+      "name": "Gary Sims",
+      "password": "123",
+      "email": "GarySims@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/men/28.jpg"
+    },
+    {
+      "id": 7,
+      "name": "Willie Russell",
+      "password": "123",
+      "email": "Willie@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/women/2.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Helena Barbosa",
+      "password": "123",
+      "email": "HelenaBarbosa@gmail.com",
+      "avatar": "https://randomuser.me/api/portraits/women/28.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Teatro Aveirense*",
+      "password": "123",
+      "email": "TeatroAveirense@gmail.com",
+      "avatar": "https://reencontrosdemusicacontemporanea.pt/2017/images/apoios/TA.png"
+    },
+    {
+      "id": "vlBJfbmG6iNl86pQJhkNldJG0A52",
+      "avatar": "https://lh3.googleusercontent.com/a-/AOh14Gh6dfOfIa2bIeA9aMRA1ENG9A36mKbPZFMkr_CCww=s96-c",
+      "name": "Pedro Miguel Pereira",
+      "email": "pedromcdp@gmail.com"
+    },
+    {
+      "id": "BH36JfGgYEPn4Ij1WzVCynePsbz2",
+      "avatar": "https://lh3.googleusercontent.com/a-/AOh14GjEPY4AZKZ19jhP9GVwwbN2-ibXN3oM6uiZhwzuMA=s96-c",
+      "name": "David Silva",
+      "email": "david.jarbas77@gmail.com"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 1,
+      "body": "Amazing"
+    },
+    {
+      "id": 2,
+      "postId": 2,
+      "userId": 2,
+      "body": "Sweet"
+    },
+    {
+      "id": 3,
+      "postId": 3,
+      "userId": 3,
+      "body": "Cool"
+    },
+    {
+      "id": 4,
+      "postId": 4,
+      "userId": 4,
+      "body": "Awesome"
+    },
+    {
+      "id": 5,
+      "postId": 5,
+      "userId": 5,
+      "body": "Nice"
+    }
+  ],
+  "savedPosts": [
+    {
+      "id": 1,
+      "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+      "posts": [
+        {
+          "id": 2,
+          "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+          "postType": "comparacao",
+          "title": "Ponte de Carcavelos",
+          "description": null,
+          "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
+          "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
+          "location": [40.6453974473121, -8.654480643946753],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        },
+        {
+          "id": 3,
+          "userId": 2,
+          "postType": "comparacao",
+          "title": "Praça do comércio",
+          "description": null,
+          "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
+          "new_photo": null,
+          "location": [40.64168732868854, -8.653957347150298],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "posts": [
+        {
+          "id": 1,
+          "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+          "postType": "foto",
+          "title": "Escola Secundária José Estevão",
+          "description": "A Escola Secundária José Estevão na década de 60",
+          "photo": "https://pbs.twimg.com/media/FLLvDlgWQAgXoqc?format=jpg&name=900x900",
+          "new_photo": null,
+          "location": [40.6376416868948, -8.648330328603409],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        },
+        {
+          "id": 2,
+          "userId": "BfR5zqo7BvdN37QyAMUX97v8xow2",
+          "postType": "comparacao",
+          "title": "Ponte de Carcavelos",
+          "description": null,
+          "photo": "https://i.pinimg.com/originals/6e/d1/f9/6ed1f92bac7709c9b772e0011db2d099.jpg",
+          "new_photo": "https://3.bp.blogspot.com/-sAA0poxFWe4/Wt-7FJWcp1I/AAAAAAAAHOc/dqDLRKuaYbEsZMywCQlk7mdRzBLCR4beQCLcBGAs/s1600/IMG_20180421_174012.jpg",
+          "location": [40.6453974473121, -8.654480643946753],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        },
+        {
+          "id": 3,
+          "userId": 2,
+          "postType": "comparacao",
+          "title": "Praça do comércio",
+          "description": null,
+          "photo": "https://pbs.twimg.com/media/FKx_HAJXIAMe8Ua?format=jpg&name=medium",
+          "new_photo": null,
+          "location": [40.64168732868854, -8.653957347150298],
+          "contentDate": "1960",
+          "postDate": "2017-12-2"
+        }
+      ]
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "Universidade de Aveiro",
+      "data": "23-4-2020",
+      "address": "Universidade de Aveiro, 3810-193 Aveiro",
+      "coordinates": [40.630611648811644, -8.657494288431876]
+    },
+    {
+      "id": 2,
+      "name": "Escola Secundária José Estevão",
+      "data": "24-7-2019",
+      "address": "Avenida 25 de Abril, 3811-901 Aveiro",
+      "coordinates": [40.63771205702211, -8.648373106456553]
+    },
+    {
+      "id": 3,
+      "name": "Praça do comércio",
+      "data": "9-11-2014",
+      "address": "Praça do comércio",
+      "coordinates": [40.64168732868854, -8.653957347150298]
+    },
+    {
+      "id": 4,
+      "name": "Teatro Aveirense",
+      "data": "20-10-2015",
+      "address": "Rua Belém do Pará, 3810-009 Aveiro",
+      "coordinates": [40.640864419578264, -8.654164401922849]
+    },
+    {
+      "id": 5,
+      "name": "Ponte dos Carcavelos",
+      "data": "17-9-2005",
+      "address": "Praceta Ria de Aveiro, 3800-257 Aveiro",
+      "coordinates": [40.6453974473121, -8.654480643946753]
+    },
+    {
+      "id": 7,
+      "name": "Praia da Barra",
+      "data": "10-1-2022",
+      "address": "Lgo do Farol 1, 3830-763 Gafanha da Nazaré",
+      "coordinates": [40.642826230729845, -8.747531175613405]
+    },
+    {
+      "id": 8,
+      "name": "Cais de Embarque de Moliceiros",
+      "data": "3-1-2022",
+      "address": "Rua de Viana do Castelo, 3800-275 Aveiro",
+      "coordinates": [40.641279446308594, -8.655670881271364]
+    }
+  ]
+}

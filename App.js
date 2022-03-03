@@ -1,16 +1,16 @@
-import { SafeAreaView } from "react-native-safe-area-context";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StatusBar } from "expo-status-bar";
-import Home from "./src/screens/Home";
+import { NativeBaseProvider } from "native-base";
+import { Provider } from "react-redux";
+import { store } from "./src/app/store";
+import { NavigationContainer } from "@react-navigation/native";
+import { NavigationController } from "./src/navigation";
 import {
   useFonts,
   Poppins_500Medium,
   Poppins_400Regular,
 } from "@expo-google-fonts/poppins";
-import { View, Text } from "react-native";
-
-const Stack = createNativeStackNavigator();
+import AppLoading from "expo-app-loading";
+import { theme } from "./src/theme";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -19,27 +19,17 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return (
-      <View>
-        <Text>Loading</Text>
-      </View>
-    );
+    return <AppLoading />;
   } else {
     return (
-      <NavigationContainer>
-        <StatusBar style="auto" />
-        <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
-          <Stack.Navigator style={{ backgroundColor: "white" }}>
-            <Stack.Screen
-              name="Home"
-              component={Home}
-              options={{
-                headerShown: false,
-              }}
-            />
-          </Stack.Navigator>
-        </SafeAreaView>
-      </NavigationContainer>
+      <Provider store={store}>
+        <StatusBar style="dark" />
+        <NativeBaseProvider theme={theme} config={theme.config}>
+          <NavigationContainer>
+            <NavigationController />
+          </NavigationContainer>
+        </NativeBaseProvider>
+      </Provider>
     );
   }
 }

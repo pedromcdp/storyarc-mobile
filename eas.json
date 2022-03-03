@@ -1,0 +1,40 @@
+{
+  "cli": {
+    "version": ">= 0.44.1"
+  },
+  "build": {
+    "preview2": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "preview_ios": {
+      "ios": {
+        "cocoapods": "1.11.2",
+        "simulator": true
+      }
+    },
+    "development": {
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      }
+    },
+    "demo": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+
+    "preview": {
+      "distribution": "internal"
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {}
+  }
+}

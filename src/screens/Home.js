@@ -1,33 +1,23 @@
-import React from "react";
-import tw from "twrnc";
-import { View, useWindowDimensions, Text } from "react-native";
+//Packages Imports
+import { useState } from "react";
+import { StatusBar } from "expo-status-bar";
+import { useWindowDimensions, Text } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { TabView, SceneMap, TabBar } from "react-native-tab-view";
-import Map from "../components/home/Map";
-import Header from "../components/home/Header";
-import HeaderSearch from "../components/home/HeaderSearch";
-
-const FirstRoute = () => (
-  <View
-    style={{
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#f6f6f6",
-    }}
-  >
-    <Text>Home</Text>
-  </View>
-);
+import { MotiView } from "moti";
+//Components
+import { Header, HeaderSearch, Feed, Map } from "../components";
 
 const renderScene = SceneMap({
-  explore: FirstRoute,
+  explore: Feed,
   map: Map,
 });
 
-export default function Home() {
+export function Home({ navigation }) {
+  const insets = useSafeAreaInsets();
   const layout = useWindowDimensions();
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
+  const [index, setIndex] = useState(0);
+  const [routes] = useState([
     { key: "explore", title: "Explorar" },
     { key: "map", title: "Mapa" },
   ]);
@@ -41,6 +31,7 @@ export default function Home() {
       </Text>
     );
   };
+
   const renderTabBar = (props) => (
     <TabBar
       {...props}
@@ -54,24 +45,36 @@ export default function Home() {
       }}
       indicatorStyle={{ backgroundColor: "#37B780" }}
       renderLabel={renderLabel}
+      pressColor={"white"}
     />
   );
 
   return (
-    <View mode="margin" style={{ flex: 1, backgroundColor: "#eee" }}>
-      <Header />
-      <HeaderSearch />
-      <TabView
-        navigationState={{ index, routes }}
-        renderScene={renderScene}
-        renderTabBar={renderTabBar}
-        onIndexChange={setIndex}
-        initialLayout={{ width: layout.width }}
-        swipeEnabled={false}
-        style={{
-          backgroundColor: "white",
+    <>
+      <MotiView
+        from={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          type: "timing",
+          duration: 320,
         }}
-      />
-    </View>
+        style={{ flex: 1, backgroundColor: "#fff", paddingTop: insets.top }}
+      >
+        <StatusBar style="dark" />
+        <Header />
+        <HeaderSearch navigation={navigation} />
+        <TabView
+          navigationState={{ index, routes }}
+          renderScene={renderScene}
+          renderTabBar={renderTabBar}
+          onIndexChange={setIndex}
+          initialLayout={{ width: layout.width }}
+          swipeEnabled={false}
+          style={{
+            backgroundColor: "white",
+          }}
+        />
+      </MotiView>
+    </>
   );
 }
