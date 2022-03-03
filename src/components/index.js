@@ -5,6 +5,8 @@ export { Feed } from "./home/Feed";
 export { Map } from "./home/Map";
 export { PostComponent } from "./home/PostComponent";
 export { HighlightPost } from "./home/HighlightPost";
+export { LoadingHighlight } from "./home/LoadingHighlight";
+export { LoadingPost } from "./home/LoadingPost";
 //Shared Components
 export { AddButton } from "./shared/AddButton";
 export { Blur } from "./shared/Blur";

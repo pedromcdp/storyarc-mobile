@@ -14,15 +14,20 @@ import { useUser } from "../../../features/UserSlice";
 import SendOutline from "../../../../assets/images/sendOutline.svg";
 //db
 import db from "../../../../server/db.json";
+import { useAddCommentMutation } from "../../../services/storyarc";
 
-export function ModalFooter({ id }) {
+export function ModalFooter({ id, refetch }) {
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
   const [comment, setComment] = useState("");
   const insets = useSafeAreaInsets();
   const currentUser = useSelector(useUser);
   const keyboardHeight = useKeyboard();
+  const [addComment, addCommentResult] = useAddCommentMutation();
 
   useEffect(() => {
+    if (addCommentResult.status === "fulfilled") {
+      refetch();
+    }
     const keyboardDidShowListener = Keyboard.addListener(
       "keyboardWillShow",
       () => {
@@ -40,7 +45,7 @@ export function ModalFooter({ id }) {
       keyboardDidHideListener.remove();
       keyboardDidShowListener.remove();
     };
-  }, [isKeyboardVisible]);
+  }, [isKeyboardVisible, addCommentResult]);
 
   function handleSubmit() {
     if (comment.length === 0) {
@@ -50,13 +55,12 @@ export function ModalFooter({ id }) {
         [{ text: "Fechar" }]
       );
     } else {
-      submitComment = {
+      addComment({
         id: uuid.v4(),
         postId: id,
         userId: currentUser.uid,
         body: comment,
-      };
-      db.comments.push(submitComment);
+      });
       setComment("");
     }
   }

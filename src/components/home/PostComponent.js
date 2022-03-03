@@ -27,7 +27,7 @@ import { SReveal } from "../shared/SReveal";
 export function PostComponent({ isLoaded, isScreen, post, saved }) {
   const navigation = useNavigation();
   const currentUser = useSelector(useUser);
-  const user = db.users.find((user) => user.id === post.userId);
+  // const user = db.users.find((user) => user.id === post.userId);
   const [isSaved, setIsSaved] = useState(saved || false);
 
   function handleSave() {
@@ -44,7 +44,7 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
         alignItems="center"
         justifyContent="space-between"
       >
-        <HStack space={"2"}>
+        <HStack space={"2"} flex="1" flexGrow="1">
           <Skeleton
             size="10"
             rounded="full"
@@ -55,7 +55,7 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
             borderColor="#37B780"
           >
             <Image
-              source={{ uri: user.avatar }}
+              source={{ uri: post.user.avatar }}
               style={{
                 width: 35,
                 height: 35,
@@ -66,6 +66,7 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
             />
           </Skeleton>
           <VStack
+            flexGrow="1"
             onStartShouldSetResponder={() =>
               navigation.navigate("Post", {
                 content: post,
@@ -79,14 +80,14 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
               startColor="coolGray.100"
               endColor="coolGray.300"
             >
-              <Text fontFamily="Poppins_500Medium">{user.name}</Text>
+              <Text fontFamily="Poppins_500Medium">{post.user.name}</Text>
               <Text fontFamily="Poppins_400Regular" sub>
                 Publicado{" "}
-                {timeSince(post.postDate) === "ontem"
-                  ? timeSince(post.postDate)
-                  : timeSince(post.postDate) === "semana passada"
-                  ? "na " + timeSince(post.postDate)
-                  : "há " + timeSince(post.postDate)}
+                {timeSince(post.createdAt) === "ontem"
+                  ? timeSince(post.createdAt)
+                  : timeSince(post.createdAt) === "semana passada"
+                  ? "na " + timeSince(post.createdAt)
+                  : "há " + timeSince(post.createdAt)}
               </Text>
             </Skeleton.Text>
           </VStack>
@@ -119,9 +120,9 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
         startColor="coolGray.100"
         endColor="coolGray.300"
       >
-        {post.description && (
+        {post.title && (
           <Text px={4} pb={2}>
-            {post.description}
+            {post.title}
           </Text>
         )}
         <SReveal post={post} />

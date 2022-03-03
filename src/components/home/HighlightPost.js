@@ -7,7 +7,6 @@ import db from "../../../server/db.json";
 
 export function HighlightPost({ index, isLoaded, post }) {
   const navigation = useNavigation();
-  const user = db.users.find((user) => user.id === post.userId);
   return (
     <ZStack
       width={140}
@@ -69,7 +68,7 @@ export function HighlightPost({ index, isLoaded, post }) {
           rounded="full"
         >
           <Image
-            source={{ uri: user.avatar }}
+            source={{ uri: post.user.avatar }}
             style={{
               width: 34,
               height: 34,
@@ -119,7 +118,7 @@ export function HighlightPost({ index, isLoaded, post }) {
                 })
               }
             >
-              {post.description}
+              {post.title}
             </Text>
           </Skeleton.Text>
         </Box>

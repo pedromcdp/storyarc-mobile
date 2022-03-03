@@ -1,16 +1,29 @@
 //Packages Imports
 import { Text, HStack, VStack } from "native-base";
 import { Image } from "react-native";
+
 //db
 import db from "../../../server/db.json";
+import { useGetCommentOwnerQuery } from "../../services/storyarc";
 
 export function CommentCell({ comment }) {
-  user = db.users.find((user) => user.id === comment.userId);
+  user = db.users.find((user) => user.id === 2);
+  const { data, isLoading, isFetching } = useGetCommentOwnerQuery({
+    uid: comment.userId,
+  });
+
+  if (isLoading || isFetching) {
+    return null;
+  }
 
   return (
     <HStack space={2} px={4} pb={0.5} pt={3}>
       <Image
-        source={{ uri: user.avatar }}
+        source={
+          data
+            ? { uri: data[0].avatar }
+            : require("../../../assets/images/user_img.png")
+        }
         style={{
           width: 40,
           height: 40,
@@ -28,7 +41,7 @@ export function CommentCell({ comment }) {
         borderBottomRadius={"lg"}
         borderTopRightRadius={"lg"}
       >
-        <Text fontFamily="Poppins_500Medium">{user.name}</Text>
+        <Text fontFamily="Poppins_500Medium">{data[0]?.name}</Text>
         <Text fontFamily="Poppins_400Regular">{comment.body}</Text>
       </VStack>
     </HStack>
