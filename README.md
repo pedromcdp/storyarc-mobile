@@ -1,8 +1,40 @@
-
 # StoryArc
 
 StoryArc é uma plataforma de arquivo de conteúdos que pressupõe a partilha e consulta de informações relativas a espaços e à sua evolução ao longo dos anos, de modo a preservar a memória patrimonial.
 
+## Correr o projeto
+
+Primeiramente deve garantir que tem o Xcode/Android Studio instalado, assim como o expo-cli
+
+Clonar o projeto
+
+```bash
+  git clone https://github.com/pedromcdp/storyarc-mobile
+```
+
+Aceder a pasta do repositório
+
+```bash
+  cd storyarc
+```
+
+Instalar as dependências
+
+```bash
+  yarn
+```
+
+Iniciar o servidor
+
+```bash
+  yarn ios
+```
+
+ou
+
+```bash
+  yarn android
+```
 
 ## Features
 
@@ -11,20 +43,18 @@ StoryArc é uma plataforma de arquivo de conteúdos que pressupõe a partilha e 
 - Explora a história baseado no local onde te encontras
 - Android/iOS e Web
 
-
 ## Demo
 
 ---todo
 
 ## Color Reference
 
-| Color             | Hex                                                                |
-| ----------------- | ------------------------------------------------------------------ |
-| Azul | ![#133960](https://via.placeholder.com/10/133960?text=+) #133960 |
-| Verde | ![#37B777](https://via.placeholder.com/10/37B777?text=+) #37B777 |
+| Color  | Hex                                                              |
+| ------ | ---------------------------------------------------------------- |
+| Azul   | ![#133960](https://via.placeholder.com/10/133960?text=+) #133960 |
+| Verde  | ![#37B777](https://via.placeholder.com/10/37B777?text=+) #37B777 |
 | Branco | ![#FFFFFF](https://via.placeholder.com/10/FFFFFF?text=+) #FFFFFF |
-| Preto | ![#000000](https://via.placeholder.com/10/000?text=+) #000000 |
-
+| Preto  | ![#000000](https://via.placeholder.com/10/000?text=+) #000000    |
 
 ## Authors
 
@@ -33,8 +63,6 @@ StoryArc é uma plataforma de arquivo de conteúdos que pressupõe a partilha e 
 - [Mariana Rodrigo](https://github.com/MarianaRodrigo)
 - [Pedro Miguel Pereira](https://www.github.com/pmcdp)
 
-
 ## Support
 
 mctwstoryarc@gmail.com
-
