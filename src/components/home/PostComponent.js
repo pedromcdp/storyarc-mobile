@@ -35,14 +35,14 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
     }
   }
   return (
-    <Pressable
-      onPress={() =>
-        navigation.navigate("Post", {
-          content: post,
-        })
-      }
-    >
-      <VStack bg="white" shadow="1" mt={isScreen ? 0 : 4} pb={2} space={2}>
+    <VStack bg="white" shadow="1" mt={isScreen ? 0 : 4} pb={2} space={2}>
+      <Pressable
+        onPress={() =>
+          navigation.navigate("Post", {
+            content: post,
+          })
+        }
+      >
         <HStack
           px={4}
           pt={2}
@@ -111,80 +111,81 @@ export function PostComponent({ isLoaded, isScreen, post, saved }) {
             </Pressable>
           )}
         </HStack>
+      </Pressable>
+      <Skeleton
+        isLoaded={isLoaded}
+        w="94%"
+        h="40"
+        alignSelf="center"
+        startColor="coolGray.100"
+        endColor="coolGray.300"
+      >
+        {post.title && (
+          <Text px={4} pb={2}>
+            {post.title}
+          </Text>
+        )}
+
+        <SReveal post={post} />
+      </Skeleton>
+      <Divider my={1} />
+      <HStack alignItems="center" px={4}>
         <Skeleton
           isLoaded={isLoaded}
-          w="94%"
-          h="40"
-          alignSelf="center"
+          rounded="full"
           startColor="coolGray.100"
           endColor="coolGray.300"
+          w={isScreen ? "full" : "2/4"}
         >
-          {post.title && (
-            <Text px={4} pb={2}>
-              {post.title}
-            </Text>
-          )}
-          <SReveal post={post} />
-        </Skeleton>
-        <Divider my={1} />
-        <HStack alignItems="center" px={4}>
-          <Skeleton
-            isLoaded={isLoaded}
-            rounded="full"
-            startColor="coolGray.100"
-            endColor="coolGray.300"
+          <Pressable
             w={isScreen ? "full" : "2/4"}
+            borderRightWidth={isScreen ? 0 : 1}
+            borderRightColor="#E5E7EB"
+            _pressed={{ opacity: 20 }}
+            onPress={handleSave}
           >
-            <Pressable
-              w={isScreen ? "full" : "2/4"}
-              borderRightWidth={isScreen ? 0 : 1}
-              borderRightColor="#E5E7EB"
-              _pressed={{ opacity: 20 }}
-              onPress={handleSave}
-            >
-              <HStack justifyContent="center" alignItems="center">
-                {isSaved ? (
-                  <>
-                    <SaveFilled />
-                    <Text ml="1" fontFamily="Poppins_400Regular">
-                      Guardado
-                    </Text>
-                  </>
-                ) : (
-                  <>
-                    <SaveOutline />
-                    <Text ml="1" fontFamily="Poppins_400Regular">
-                      Guardar
-                    </Text>
-                  </>
-                )}
-              </HStack>
-            </Pressable>
-          </Skeleton>
-          <Skeleton
-            isLoaded={isLoaded}
-            rounded="full"
-            startColor="coolGray.100"
-            endColor="coolGray.300"
-            w={isScreen ? "0" : "2/4"}
+            <HStack justifyContent="center" alignItems="center">
+              {isSaved ? (
+                <>
+                  <SaveFilled />
+                  <Text ml="1" fontFamily="Poppins_400Regular">
+                    Guardado
+                  </Text>
+                </>
+              ) : (
+                <>
+                  <SaveOutline />
+                  <Text ml="1" fontFamily="Poppins_400Regular">
+                    Guardar
+                  </Text>
+                </>
+              )}
+            </HStack>
+          </Pressable>
+        </Skeleton>
+        <Skeleton
+          isLoaded={isLoaded}
+          rounded="full"
+          startColor="coolGray.100"
+          endColor="coolGray.300"
+          w={isScreen ? "0" : "2/4"}
+        >
+          <Pressable
+            w="2/4"
+            _pressed={{ opacity: 20 }}
+            onPress={() =>
+              navigation.navigate("CommentsModal", {
+                post: post,
+              })
+            }
           >
-            <Pressable
-              w="2/4"
-              _pressed={{ opacity: 20 }}
-              onPress={() =>
-                navigation.navigate("CommentsModal", {
-                  post: post,
-                })
-              }
-            >
-              <HStack justifyContent="center" alignItems="center" space="2">
-                <CommentOutline />
-                <Text>Comentários</Text>
-              </HStack>
-            </Pressable>
-          </Skeleton>
-        </HStack>
-      </VStack>
-    </Pressable>
+            <HStack justifyContent="center" alignItems="center" space="2">
+              <CommentOutline />
+              <Text>Comentários</Text>
+            </HStack>
+          </Pressable>
+        </Skeleton>
+      </HStack>
+    </VStack>
   );
 }
